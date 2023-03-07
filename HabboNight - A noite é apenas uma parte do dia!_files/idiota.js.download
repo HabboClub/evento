@@ -1,0 +1,16 @@
+Site = {
+    Awards: function() {
+
+    },
+    Hide: function() {
+
+    },
+    Cortina: function(){
+
+    	$(".abrir").addClass("ativo");
+
+    	setTimeout(function(){
+			$(".abrir").addClass("clear");
+		}, 2000);		
+    }
+}

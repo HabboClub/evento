@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)https://www.habbonight.com.br/index.php -->
+<html lang="pt-br" style="overflow: hidden;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!--<base href="/">--><base href=".">
+<title>HabboNight - A noite é apenas uma parte do dia!</title>
+<meta name="description" content="A HabboNight é uma Fã Site Oficial do Habbo BR/PT, aqui você encontra notícias do Habbo e do mundo, rádio com os melhores locutores, eventos/promoções, FanCenter, fórum para discussões e várias outras ferramentas para você se destacar ainda mais no mundo de pixels">
+<meta name="theme-color" content="#02081e">
+<meta name="apple-mobile-web-app-status-bar-style" content="#02081e">
+<meta name="msapplication-navbutton-color" content="#02081e">
+<link href="https://www.habbonight.com.br/ico.png" rel="icon" type="image/x-icon">
+<link href="./css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./estilo.css" type="text/css">
+<link rel="stylesheet" href="./font-awesome.min.css">
+<script src="./jquery.min.js.download"></script>
+<script src="./1.12.1-jquery-ui.min.js.download"></script>
+<script type="text/javascript" src="./jquery.cookie.js.download"></script>
+<script type="text/javascript" src="./jquery.jplayer.min.js.download"></script>
+<script src="./bootstrap.min.js.download"></script>
+<script type="text/javascript" src="./jquery.cycle.all.min.js.download"></script>
+<script src="./notify.js.download"></script>
+<script src="./notify-bootstrap.js.download"></script><style type="text/css" id="notify-bootstrap">.notifyjs-bootstrap-base {
+  font-weight: bold;
+  padding: 8px 15px 8px 14px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: Trebuchet MS;
+  font-size: 12px;;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  white-space: nowrap;
+  padding-left: 35px;
+  background-repeat: no-repeat;
+  background-position: 6px 14px;
+}
+.notifyjs-bootstrap-error {
+  color: #B94A48;
+  background-color: #F2DEDE;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid #EED3D7;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAtRJREFUeNqkVc1u00AQHq+dOD+0poIQfkIjalW0SEGqRMuRnHos3DjwAH0ArlyQeANOOSMeAA5VjyBxKBQhgSpVUKKQNGloFdw4cWw2jtfMOna6JOUArDTazXi/b3dm55socPqQhFka++aHBsI8GsopRJERNFlY88FCEk9Yiwf8RhgRyaHFQpPHCDmZG5oX2ui2yilkcTT1AcDsbYC1NMAyOi7zTX2Agx7A9luAl88BauiiQ/cJaZQfIpAlngDcvZZMrl8vFPK5+XktrWlx3/ehZ5r9+t6e+WVnp1pxnNIjgBe4/6dAysQc8dsmHwPcW9C0h3fW1hans1ltwJhy0GxK7XZbUlMp5Ww2eyan6+ft/f2FAqXGK4CvQk5HueFz7D6GOZtIrK+srupdx1GRBBqNBtzc2AiMr7nPplRdKhb1q6q6zjFhrklEFOUutoQ50xcX86ZlqaZpQrfbBdu2R6/G19zX6XSgh6RX5ubyHCM8nqSID6ICrGiZjGYYxojEsiw4PDwMSL5VKsC8Yf4VRYFzMzMaxwjlJSlCyAQ9l0CW44PBADzXhe7xMdi9HtTrdYjFYkDQL0cn4Xdq2/EAE+InCnvADTf2eah4Sx9vExQjkqXT6aAERICMewd/UAp/IeYANM2joxt+q5VI+ieq2i0Wg3l6DNzHwTERPgo1ko7XBXj3vdlsT2F+UuhIhYkp7u7CarkcrFOCtR3H5JiwbAIeImjT/YQKKBtGjRFCU5IUgFRe7fF4cCNVIPMYo3VKqxwjyNAXNepuopyqnld602qVsfRpEkkz+GFL1wPj6ySXBpJtWVa5xlhpcyhBNwpZHmtX8AGgfIExo0ZpzkWVTBGiXCSEaHh62/PoR0p/vHaczxXGnj4bSo+G78lELU80h1uogBwWLf5YlsPmgDEd4M236xjm+8nm4IuE/9u+/PH2JXZfbwz4zw1WbO+SQPpXfwG/BBgAhCNZiSb/pOQAAAAASUVORK5CYII=);
+}
+.notifyjs-bootstrap-success {
+  color: #468847;
+  background-color: #DFF0D8;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid #D6E9C6;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAutJREFUeNq0lctPE0Ecx38zu/RFS1EryqtgJFA08YCiMZIAQQ4eRG8eDGdPJiYeTIwHTfwPiAcvXIwXLwoXPaDxkWgQ6islKlJLSQWLUraPLTv7Gme32zoF9KSTfLO7v53vZ3d/M7/fIth+IO6INt2jjoA7bjHCJoAlzCRw59YwHYjBnfMPqAKWQYKjGkfCJqAF0xwZjipQtA3MxeSG87VhOOYegVrUCy7UZM9S6TLIdAamySTclZdYhFhRHloGYg7mgZv1Zzztvgud7V1tbQ2twYA34LJmF4p5dXF1KTufnE+SxeJtuCZNsLDCQU0+RyKTF27Unw101l8e6hns3u0PBalORVVVkcaEKBJDgV3+cGM4tKKmI+ohlIGnygKX00rSBfszz/n2uXv81wd6+rt1orsZCHRdr1Imk2F2Kob3hutSxW8thsd8AXNaln9D7CTfA6O+0UgkMuwVvEFFUbbAcrkcTA8+AtOk8E6KiQiDmMFSDqZItAzEVQviRkdDdaFgPp8HSZKAEAL5Qh7Sq2lIJBJwv2scUqkUnKoZgNhcDKhKg5aH+1IkcouCAdFGAQsuWZYhOjwFHQ96oagWgRoUov1T9kRBEODAwxM2QtEUl+Wp+Ln9VRo6BcMw4ErHRYjH4/B26AlQoQQTRdHWwcd9AH57+UAXddvDD37DmrBBV34WfqiXPl61g+vr6xA9zsGeM9gOdsNXkgpEtTwVvwOklXLKm6+/p5ezwk4B+j6droBs2CsGa/gNs6RIxazl4Tc25mpTgw/apPR1LYlNRFAzgsOxkyXYLIM1V8NMwyAkJSctD1eGVKiq5wWjSPdjmeTkiKvVW4f2YPHWl3GAVq6ymcyCTgovM3FzyRiDe2TaKcEKsLpJvNHjZgPNqEtyi6mZIm4SRFyLMUsONSSdkPeFtY1n0mczoY3BHTLhwPRy9/lzcziCw9ACI+yql0VLzcGAZbYSM5CCSZg1/9oc/nn7+i8N9p/8An4JMADxhH+xHfuiKwAAAABJRU5ErkJggg==);
+}
+.notifyjs-bootstrap-info {
+  color: #3A87AD;
+  background-color: #D9EDF7;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid #BCE8F1;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYFAhkSsdes/QAAA8dJREFUOMvVlGtMW2UYx//POaWHXg6lLaW0ypAtw1UCgbniNOLcVOLmAjHZolOYlxmTGXVZdAnRfXQm+7SoU4mXaOaiZsEpC9FkiQs6Z6bdCnNYruM6KNBw6YWewzl9z+sHImEWv+vz7XmT95f/+3/+7wP814v+efDOV3/SoX3lHAA+6ODeUFfMfjOWMADgdk+eEKz0pF7aQdMAcOKLLjrcVMVX3xdWN29/GhYP7SvnP0cWfS8caSkfHZsPE9Fgnt02JNutQ0QYHB2dDz9/pKX8QjjuO9xUxd/66HdxTeCHZ3rojQObGQBcuNjfplkD3b19Y/6MrimSaKgSMmpGU5WevmE/swa6Oy73tQHA0Rdr2Mmv/6A1n9w9suQ7097Z9lM4FlTgTDrzZTu4StXVfpiI48rVcUDM5cmEksrFnHxfpTtU/3BFQzCQF/2bYVoNbH7zmItbSoMj40JSzmMyX5qDvriA7QdrIIpA+3cdsMpu0nXI8cV0MtKXCPZev+gCEM1S2NHPvWfP/hL+7FSr3+0p5RBEyhEN5JCKYr8XnASMT0xBNyzQGQeI8fjsGD39RMPk7se2bd5ZtTyoFYXftF6y37gx7NeUtJJOTFlAHDZLDuILU3j3+H5oOrD3yWbIztugaAzgnBKJuBLpGfQrS8wO4FZgV+c1IxaLgWVU0tMLEETCos4xMzEIv9cJXQcyagIwigDGwJgOAtHAwAhisQUjy0ORGERiELgG4iakkzo4MYAxcM5hAMi1WWG1yYCJIcMUaBkVRLdGeSU2995TLWzcUAzONJ7J6FBVBYIggMzmFbvdBV44Corg8vjhzC+EJEl8U1kJtgYrhCzgc/vvTwXKSib1paRFVRVORDAJAsw5FuTaJEhWM2SHB3mOAlhkNxwuLzeJsGwqWzf5TFNdKgtY5qHp6ZFf67Y/sAVadCaVY5YACDDb3Oi4NIjLnWMw2QthCBIsVhsUTU9tvXsjeq9+X1d75/KEs4LNOfcdf/+HthMnvwxOD0wmHaXr7ZItn2wuH2SnBzbZAbPJwpPx+VQuzcm7dgRCB57a1uBzUDRL4bfnI0RE0eaXd9W89mpjqHZnUI5Hh2l2dkZZUhOqpi2qSmpOmZ64Tuu9qlz/SEXo6MEHa3wOip46F1n7633eekV8ds8Wxjn37Wl63VVa+ej5oeEZ/82ZBETJjpJ1Rbij2D3Z/1trXUvLsblCK0XfOx0SX2kMsn9dX+d+7Kf6h8o4AIykuffjT8L20LU+w4AZd5VvEPY+XpWqLV327HR7DzXuDnD8r+ovkBehJ8i+y8YAAAAASUVORK5CYII=);
+}
+.notifyjs-bootstrap-warn {
+  color: #C09853;
+  background-color: #FCF8E3;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid #FBEED5;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABJlBMVEXr6eb/2oD/wi7/xjr/0mP/ykf/tQD/vBj/3o7/uQ//vyL/twebhgD/4pzX1K3z8e349vK6tHCilCWbiQymn0jGworr6dXQza3HxcKkn1vWvV/5uRfk4dXZ1bD18+/52YebiAmyr5S9mhCzrWq5t6ufjRH54aLs0oS+qD751XqPhAybhwXsujG3sm+Zk0PTwG6Shg+PhhObhwOPgQL4zV2nlyrf27uLfgCPhRHu7OmLgAafkyiWkD3l49ibiAfTs0C+lgCniwD4sgDJxqOilzDWowWFfAH08uebig6qpFHBvH/aw26FfQTQzsvy8OyEfz20r3jAvaKbhgG9q0nc2LbZxXanoUu/u5WSggCtp1anpJKdmFz/zlX/1nGJiYmuq5Dx7+sAAADoPUZSAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfdBgUBGhh4aah5AAAAlklEQVQY02NgoBIIE8EUcwn1FkIXM1Tj5dDUQhPU502Mi7XXQxGz5uVIjGOJUUUW81HnYEyMi2HVcUOICQZzMMYmxrEyMylJwgUt5BljWRLjmJm4pI1hYp5SQLGYxDgmLnZOVxuooClIDKgXKMbN5ggV1ACLJcaBxNgcoiGCBiZwdWxOETBDrTyEFey0jYJ4eHjMGWgEAIpRFRCUt08qAAAAAElFTkSuQmCC);
+}
+.notifyjs-bootstrap-topico {
+  background-image: url(http://i.imgur.com/ZrvF0Yq.png);
+}
+.notifyjs-bootstrap-pixel {
+  background-image: url(http://i.imgur.com/pZ1YMXg.png);
+}
+.notifyjs-bootstrap-noticia {
+  background-image: url(http://i.imgur.com/y24PiRy.png);
+}
+.notifyjs-bootstrap-evento {
+  background-image: url(http://i.imgur.com/I4MDTjv.png);
+}
+</style>
+<script type="text/javascript" src="./principal.js.download"></script>
+<script type="text/javascript" src="./pace.js.download"></script>
+<script type="text/javascript" src="./jquery.slimscroll.js.download"></script>
+<script src="./idiota.js.download"></script>
+
+<!-- INICIO MUDA O TEMA -->
+
+
+<!-- FIM MUDA O TEMA -->
+
+
+
+<style type="text/css" id="core-notify">.notifyjs-corner {
+  position: fixed;
+  margin: 5px;
+  z-index: 1050;
+}
+
+.notifyjs-corner .notifyjs-wrapper,
+.notifyjs-corner .notifyjs-container {
+  position: relative;
+  display: block;
+  height: inherit;
+  width: inherit;
+  margin: 3px;
+}
+
+.notifyjs-wrapper {
+  z-index: 1;
+  position: absolute;
+  display: inline-block;
+  height: 0;
+  width: 0;
+}
+
+.notifyjs-container {
+  display: none;
+  z-index: 1;
+  position: absolute;
+}
+
+.notifyjs-hidable {
+  cursor: pointer;
+}
+
+[data-notify-text],[data-notify-html] {
+  position: relative;
+}
+
+.notifyjs-arrow {
+  position: absolute;
+  z-index: 2;
+  width: 0;
+  height: 0;
+}</style></head>
+<body class="  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div><audio id="notification_sound" src="assets/notificacao.mp3" type="audio/mpeg"></audio>
+
+<div id="banner" style="image-rendering:pixelated;">
+
+<script>
+$(document).ready(function(){
+	$("#report_bug").click(function(){
+		abrir.alerta('Reportar Bug!','<form action="javascript:;" id="form_bug"><center><textarea id="input_branca" class="texto_bug" style="height:100px;" placeholder="Diga-nos o que ocorreu!"></textarea><input type="submit" id="enviar_r" value="Enviar" /></form></center><div id="exibe_erro"></div>');
+
+		$("#form_bug").submit(function(){
+			var texto_bug = $(".texto_bug").val();
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				data: {'texto': texto_bug, 'carrega': 'sim', 'tipo':'report_bug', 'link':'https://www.habbonight.com.br/index.php'},
+				url: 'lib/ajax.php',
+				success: function(data) {
+					if(data.status == 'foi'){
+						$("#exibe_erro").html(data.mensagem);
+					} else {
+						abrir.alerta('Erro!','Os dados que você digitou estão errados, tente novamente!');
+					}
+				}
+			});
+		});
+	});
+	
+	$(".lets_login").click(function(){
+		abrir.alerta('OOOPS!','Você precisa estar logado para poder adquirir algo na Lets Shopping.');
+	});
+	$(".login_off").click(function(){
+		abrir.alerta('OOOPS!','Você precisa estar logado para poder pegar este item!');
+	});
+	$(".jardim").click(function(){
+		abrir.alerta('Jardim Mágico','</br><center><img src="https://images.habbo.com/c_images/album1584/UK788.gif"></center></br><font style="text-align:justify;">Visite o Jardim Mágico todos os dias e garanta códigos da campanha, contendo <b>VARINHAS</b> (ponto) e <b>PÓS MÁGICOS</b> (moeda). Sempre às 14hs BR a Fada Invisible renovará os códigos.</font></br></br><center><b>#Habbonight7ANOS</b></center></br></br><center><a href="https://habbonight.com.br/usuario/nightpoints" target="_blank"><input type="submit" id="enviar_r" value="Gerar código!"/></a><a href="https://www.habbo.com.br/hotel?room=140894129" target="_blank"><input type="submit" id="enviar_r" value="Leve-me ao jardim!"/></a></center>');
+	});
+});
+</script>
+		<div id="centraliza">
+
+
+
+		<div id="registrar">REGISTRE-SE!</div>
+		<div id="logar">LOGUE-SE</div>
+		<div id="clear"></div>
+		<div class="animated zoomInDown" id="logo" title="" data-original-title="HabboNight - A noite é apenas uma parte do dia!"></div>
+		<div style="width:402px;float:right;overflow:hidden;margin-top:-15px;" id="carnaval">
+		<!--<div style="width:402px;float:right;overflow:hidden;margin-top:-20px;" id="carnaval">-->
+		    <!--<div style="width:402px;float:right;overflow:hidden;margin-top:-5px;" id="carnaval">-->
+			<div id="pub_title">PUBLICIDADE</div>
+			<div id="pub_corpo">
+			<div id="pass_s"></div>
+			<div id="slide">
+				<div class="paginas"><a href="https://www.habbonight.com.br/#" class="">1</a><a href="https://www.habbonight.com.br/#" class="">2</a><a href="https://www.habbonight.com.br/#" class="">3</a><a href="https://www.habbonight.com.br/#" class="">4</a><a href="https://www.habbonight.com.br/#" class="activeSlide">5</a><a href="https://www.habbonight.com.br/#" class="">6</a><a href="https://www.habbonight.com.br/#" class="">7</a></div><ul style="position: relative; width: 400px; height: 184px;">
+					<li style="background-color: rgb(0, 0, 0); position: absolute; top: 0px; left: 0px; z-index: 7; opacity: 0; display: none; width: 400px; height: 184px;"><a href="https://www.habbonight.com.br/csiot.com.br"><img src="./955177c989a9d4713cc12da4065a37c5.png"><div id="texto">Parceiros<br><span>CSI OPERAÇÃO TÁTICA</span></div></a></li>
+					<li style="background-color: rgb(0, 0, 0); position: absolute; top: 0px; left: 0px; display: none; z-index: 7; opacity: 0; width: 400px; height: 184px;"><a href="https://forms.gle/B2Mku5eynk5zsZsHA" target="_blank"><img src="./db040b12c7c68bf31c3d6d2a53a3e30e.png"><div id="texto">VAGAS<br><span>Locutor e Aprendiz</span></div></a></li>
+					<li style="background-color: rgb(0, 0, 0); position: absolute; top: 0px; left: 0px; display: none; z-index: 7; opacity: 0; width: 400px; height: 184px;"><a href="https://www.habbonight.com.br/"><img src="./e07e236884e21a3cb0ebaccf7343e8ac.png"><div id="texto">Parceiros<br><span> Fuja do Jason United</span></div></a></li>
+					<li style="background-color: rgb(0, 0, 0); position: absolute; top: 0px; left: 0px; display: none; z-index: 7; opacity: 0; width: 400px; height: 184px;"><a href="https://orgunep.systemhb.net/"><img src="./952ce8209872ffe800406a0bdf83ff67.png"><div id="texto">Parceiros<br><span>Organização UNEP</span></div></a></li>
+					<li style="background-color: rgb(0, 0, 0); position: absolute; top: 0px; left: 0px; display: block; z-index: 8; opacity: 1; width: 400px; height: 184px;"><a href="https://www.habbo.com.br/room/150318526"><img src="./5e97ad19003588b1728538daa44f951c.png"><div id="texto">Parceiros<br><span>Labirinto Encantado 600C</span></div></a></li>
+					<li style="background-color: rgb(0, 0, 0); position: absolute; top: 0px; left: 0px; display: none; z-index: 7; opacity: 0; width: 400px; height: 184px;"><a href="https://dichb.cf/"><img src="./39b3f27f2d1b434ec0e5411af016b2de.png"><div id="texto">Parceiros<br><span>Polícia DIC</span></div></a></li>
+					<li style="background-color: rgb(0, 0, 0); position: absolute; top: 0px; left: 0px; display: none; z-index: 7; opacity: 0; width: 400px; height: 184px;"><a href="https://habboloji.com/"><img src="./2b14efb2ecb9ed3c03dd503751eb69e2.png"><div id="texto">Parceiros<br><span>HabboLoji</span></div></a></li>
+				</ul>
+			</div>
+			</div>
+
+		</div>
+	
+		<div id="player">
+			<div id="volume"><div id="icon"></div><div id="slider" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header ui-slider-range-min" style="width: 90%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 90%;"></span></div></div>
+			<div id="avatar" style="background-image:url(https://habbonight.com.br/imagens/avatar.png)"><div id="camada"><div style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=AutoNight&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) no-repeat 7px -5px; width:80px; height:80px;"><div id="microfone" style="background: url(&quot;https://www.habbo.com.br/habbo-imaging/avatarimage?user=AutoNight&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m&quot;) 7px -5px no-repeat;"></div></div></div></div>
+			<div id="infos"><span style="color:#01a5f6">ONLINE: </span><i style="font-size:18px;" class="fa fa-repeat fa-spin"></i> <i style="font-size:18px; margin-left:10px;" onclick="window.open(&#39;https://noite.me&#39;, &#39;Player Alternativo&#39;, &#39;width=400,height=340,top=20,left=20,fullscreen=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,scrollbars=no,dependent=no&#39;);" class="fa fa-window-restore" title="" data-original-title="Player Alternativo"> <span style="font-family:&#39;Lato&#39;; font-size:9px; font-weight:900; color:#fff; line-height:50%; position: absolute; margin:-10px 13px;"><p>Player</p><p>Alternativo</p></span> </i> <br><span class="locutor">AutoNight</span><br><font data-placement="bottom" class="programa">Tocando todas</font></div>
+			<div id="ouvintes" data-hover="50" title="" data-original-title="&lt;h1&gt;&lt;span class=&#39;ouvintes_toltip&#39; style=&#39;color:#01a5f6&#39;&gt;49&lt;/span&gt; ouvintes únicos&lt;/h1&gt;">50</div>
+			<img usemap="#Map" style="position:absolute;margin:-38px 123px;" src="./play-pause.png" border="0">
+            <map name="Map" id="Map">
+            	<area shape="circle" onclick="mute();" target="player" style="margin-top: 0px;cursor:pointer;" coords="51,50,14">
+            	<area shape="circle" onclick="play();" target="player" style="cursor:pointer;" coords="25,24,20">
+            </map>
+										<div id="clear"></div>
+            <div id="sequencia" style="font-family: lato; color: #01a5f6; margin-top:7px;">A SEGUIR: <div style="background: url(https://www.habbo.com.br/habbo-imaging/avatarimage?hb=image&amp;user=AutoNight&amp;headonly=1&amp;direction=2&amp;head_direction=2&amp;action=drk=667&amp;gesture=&amp;size=s); width: 25px; height:30px; margin-top: -25px; margin-left: 75px;"></div><div style="font-family: lato; color: white; margin-top: -25px; margin-left: 105px;">AutoNight <font size="1">(23:00 às 24:00)</font></div></div>
+                        
+		</div>
+		
+	<script>
+        if(window.self !== window.top) {
+    		window.top.document.title = document.title;
+    		var player_top = window.top.player.document.getElementById('audio');
+    	}else{
+    		var player_top = document.getElementById('audio');
+    	}
+    	
+        function mute(){
+            player_top.volume = 0.0;
+        }
+        function play(){
+            player_top.volume = 0.5;
+        }
+    </script>
+	</div>
+</div>
+
+<div id="seta_player" class="abre_p"></div>
+<div id="barra_player">
+	<div id="align">
+		<a href="https://www.habbonight.com.br/radio/pedidos"><div id="icons"><div class="pedidos"></div><div id="text">Fazer pedido</div></div></a>
+		<a onclick="radio.presenca()"><div id="icons"><div class="presenca"></div><div id="text">Presença</div></div></a>
+		<a><div class="coracao" id="icons"><div class="like"></div><div id="text">41</div></div></a>
+		<a><div title="" id="icons" data-original-title="Não possui twitter!"><div class="twitter"></div><div id="text">Twitter</div></div></a>
+		<a><div title="" id="icons" data-original-title="Não possui quarto!"><div class="quarto"></div><div id="text">Quarto do locutor</div></div></a>
+	</div>
+</div>
+<div id="barra_menu"></div>
+<div id="menu">
+	<ul>
+		<a href="https://www.habbonight.com.br/index.php"><li>Home</li></a>
+		<li>Habbonight
+			<ul>
+				<li><a href="https://www.habbonight.com.br/habbonight/equipe">Equipe</a></li>
+				<li><a href="https://www.habbonight.com.br/habbonight/aniversariantes">Aniversariantes</a></li>
+				<!--<li><a href="formulario-cargo">Seja da equipe</a></li>-->
+				<li class="icon_sub">Parceiros
+					<ul>
+						<li><a href="https://www.habbonight.com.br/parceiros/sites">Sites</a></li>
+					</ul>
+				</li>
+				<li class="icon_sub">Aplicativos
+					<ul>
+						<!--<li><a href="nightsena">NightSena</a></li>-->
+						<li><a href="https://www.habbonight.com.br/lets">Lets Shopping</a></li>
+														<li><a href="https://www.habbonight.com.br/pagina/409-regras-da-lets-shopping">Regras da Lets Shopping</a></li> 
+											</ul>
+				</li>
+				<li class="icon_sub">Sobre a Habbonight
+					<ul>
+														<li><a href="https://www.habbonight.com.br/pagina/399-night-points">Night Points</a></li> 
+														<li><a href="https://www.habbonight.com.br/pagina/401-versaoes">Versões</a></li> 
+											</ul>
+				</li>
+				<li class="icon_sub">Regras da Habbonight
+					<ul>
+														<li><a href="https://www.habbonight.com.br/pagina/411-regras-do-site">Regras do site</a></li> 
+											</ul>
+				</li>
+				<li><a href="https://www.habbonight.com.br/calendario">Calendário Eventos</a></li>
+				<li><a href="https://www.habbonight.com.br/pagina/398-histaoria-da-habbonight">História da Habbonight</a></li> 
+			</ul>
+		</li>
+		<li>Habbo
+        	<ul>
+				<li><a href="https://www.habbonight.com.br/habbo/emblemas">Emblemas</a></li>
+				<li><a href="https://www.habbonight.com.br/noticias/coisas-gratis">Emblemas Grátis</a></li>
+				<li><a href="https://www.habbonight.com.br/pagina/422-arquitetos-em-aacaao">Arquitetos em Ação</a></li> 
+				<li><a href="https://www.habbonight.com.br/pagina/421-sistema-de-moderao">Sistema de moderação</a></li> 
+				<li><a href="https://www.habbonight.com.br/pagina/419-dicas-de-segurana">Dicas de segurança</a></li> 
+				<li><a href="https://www.habbonight.com.br/pagina/418-comandos-e-caodigos">Comandos e códigos</a></li> 
+				<li><a href="https://www.habbonight.com.br/pagina/416-faa-sites-oficiais-">Fã-sites oficiais </a></li> 
+				<li><a href="https://www.habbonight.com.br/pagina/414-embaixadores">Embaixadores</a></li> 
+				<li><a href="https://www.habbonight.com.br/pagina/404-staffs">Staffs</a></li> 
+				<li><a href="https://www.habbonight.com.br/pagina/403-catlogo">Catálogo</a></li> 
+			</ul>
+        </li>
+		<li>Notícias
+			<ul>
+				<li><a href="https://www.habbonight.com.br/noticias/categorias">Categorias</a></li>
+				<li><a href="https://www.habbonight.com.br/noticias/ultimas">Últimas 24 Horas</a></li>
+				<li><a href="https://www.habbonight.com.br/noticias/colunas">Colunas</a></li>
+				<li><a href="https://www.habbonight.com.br/noticias/coisas-gratis">Emblemas Grátis</a></li>
+				<li><a href="https://www.habbonight.com.br/calendario">Calendário Eventos</a></li>
+				<li><a href="https://www.habbonight.com.br/noticias/ranking">Ranking das notícias</a></li>
+			</ul>
+        </li>
+		<li>Rádio
+        	<ul>
+				<li><a href="https://www.habbonight.com.br/radio/horarios">Horários</a></li>
+				<li><a href="https://www.habbonight.com.br/radio/relatorios">Relatórios de audiência</a></li>
+				<li><a href="https://www.habbonight.com.br/radio/ranking">Ranking de Locutores</a></li>
+				<li><a href="https://www.habbonight.com.br/ranking-presenca">Ranking de Presenças</a></li>
+                                				    <li><a href="https://www.habbonight.com.br/pagina/415-aprendiz-de-locutor">Aprendiz de Locutor</a></li> 
+                				    <li><a href="https://www.habbonight.com.br/pagina/382-seja-um-locutor">Seja um Locutor</a></li> 
+                			</ul>
+		</li>
+		<li>Usuários
+			<ul>
+				<li id="registrar_menu"><a><span>Registre-se</span></a></li>
+				<li><a href="https://www.habbonight.com.br/usuario/recuperar"><span>Recuperar senha</span></a></li>
+				<li><a href="https://www.habbonight.com.br/usuario/usuarios-online"><span>Usuários online</span></a></li>
+			</ul>
+		</li>
+		<li>Fã-Center
+			<ul>
+								<li><a href="https://www.habbonight.com.br/facenter/habbo-imager">Habbo Imager</a></li> 
+				<li><a href="https://www.habbonight.com.br/facenter/balao-fala">Balão de Fala</a></li> 
+				<li><a href="https://www.habbonight.com.br/facenter/gerador-letra">Gerador de Letras</a></li> 
+				<li><a href="https://www.habbonight.com.br/facenter/scanner-emblemas">Scanner de Emblemas</a></li> 
+				<li><a href="https://www.habbonight.com.br/facenter/scanner-amigos">Scanner de Amigos</a></li>
+                			</ul>
+		</li>
+		<li><!--<div style="position:absolute; font-family:Tahoma; font-weight:bold; font-size:8px; color:#c5000c; margin-left:-15px; margin-top:-13px;">NEW</div>-->Pixel-Arts
+			<ul>
+				<li><a href="https://www.habbonight.com.br/pixels/portal">Portal de Pixels</a></li> 
+                			</ul>
+		</li>
+		<li>Fórum
+			<ul>
+				<li><a href="https://www.habbonight.com.br/forum/categorias">Categorias</a></li>
+				<li><a href="https://www.habbonight.com.br/pagina/433-regras-do-faorum">Regras do Fórum</a></li> 
+				<li><a href="https://www.habbonight.com.br/forum/niveis">Níveis do fórum</a></li>
+				<li><a href="https://www.habbonight.com.br/forum/ranking">Ranking do fórum</a></li>
+				</ul>
+				
+            </li><li>Elfo de Ouro
+			<ul>
+				<!---<li><a href="elfodeouro">Vote</a></li>-->
+				<li><a href="https://www.habbonight.com.br/pagina/435-elfo-de-ouro--ranking">Ranking</a></li>
+	</ul>
+</li></ul><div style="width:1000px;margin:auto"><div style="float:right; margin-right:20px; margin-top:-40px"><i id="menu_fixed" title="Desfixar menu" class="fa fa-bookmark" style="cursor:pointer" data-placement="bottom"></i></div></div></div>
+
+<div id="corpo">
+
+	<div id="clear"></div>
+
+	<div id="elemento" class="noticias_att">
+		<div id="ferramentas" style="margin-right:7px;"><div id="ferra"></div><div id="seta_d" onclick="noticias.paginacao(&#39;next&#39;)"></div><div id="seta_e" onclick="noticias.paginacao(&#39;prev&#39;)" class="disable"></div><div id="proc_not"><form action="https://www.habbonight.com.br/noticias/buscar" method="post"><input type="submit" value=""><input type="text" name="titulo" placeholder="Digite alguma coisa..." autocomplete="off"></form></div></div><div id="titulo" style="margin-left:7px;"><div id="icon" class="not"></div> NOTÍCIAS <a href="https://www.habbonight.com.br/noticias/ultimas">(ver todas)</a></div>
+		<div id="clear"></div>
+			<div id="noticias_att" style="display:table">
+                <a href="https://www.habbonight.com.br/noticia/10210-abril-2023-paascoa"><div data-placement="bottom" title="" id="noticia" style="background:url(http://www.habbonight.com.br/media/acervo/2023/02/078cca750a.png);" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; Feshar&lt;/h1&gt;"><div data-placement="left" style="position:absolute;font-size:40px;color: #ffbf00;margin-top: 9px;margin-left: 175px;" title="" data-original-title="Notícia fixa"><i class="fa fa-star"></i></div><div id="deg"><div><span style="color:#D70043">Habbo Hotel</span><br>Abril 2023: Páscoa</div></div></div></a>
+                <a href="https://www.habbonight.com.br/noticia/10187-maraco-2023-hanami-"><div data-placement="bottom" title="" id="noticia" style="background:url(http://www.habbonight.com.br/media/acervo/2023/02/fe5ccbe9b7.png);" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; Feshar&lt;/h1&gt;"><div data-placement="left" style="position:absolute;font-size:40px;color: #ffbf00;margin-top: 9px;margin-left: 175px;" title="" data-original-title="Notícia fixa"><i class="fa fa-star"></i></div><div id="deg"><div><span style="color:#D70043">Habbo Hotel</span><br>Março 2023: Hanami </div></div></div></a>
+				<a href="https://www.habbonight.com.br/noticia/10236-adquira-jaa-pack-clareira-na-selva"><div data-placement="bottom" title="" id="noticia" style="background:url(https://habbonight.com.br/media/acervo/2023/03/765d5c14e8.png);" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; =vc&lt;/h1&gt;"><div id="deg"><div><span style="color:#A3D900">Habbo Hotel BR/PT</span><br>Adquira já: Pack Clareira na Selva</div></div></div></a>
+				<a href="https://www.habbonight.com.br/noticia/10235-tutorial-ajudante-da-floresta"><div data-placement="bottom" title="" id="noticia" style="background:url(https://habbonight.com.br/media/acervo/2023/03/f70ef3e98b.png);" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; Feshar&lt;/h1&gt;"><div id="deg"><div><span style="color:#ba01ff">Emblemas grátis</span><br>Tutorial: Ajudante da Floresta</div></div></div></a>
+				<a href="https://www.habbonight.com.br/noticia/10234-emblemas-da-semana--maraco-31"><div data-placement="bottom" title="" id="noticia" style="background:url(https://habbonight.com.br/media/acervo/2021/11/b710de45f5.png);" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; mceandre&lt;/h1&gt;"><div id="deg"><div><span style="color:#D70043">Habbo Hotel</span><br>Emblemas da Semana - Março #31</div></div></div></a>
+				<a href="https://www.habbonight.com.br/noticia/10233-tutorial-do-emblema-foguinho"><div data-placement="bottom" title="" id="noticia" style="background:url(https://habbonight.com.br/media/acervo/2023/03/b036e06ee3.png);" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; -SerpaNegra&lt;/h1&gt;"><div id="deg"><div><span style="color:#ba01ff">Emblemas grátis</span><br>Tutorial do Emblema: Foguinho</div></div></div></a>
+				<a href="https://www.habbonight.com.br/noticia/10232-tutorial-aprendiz-de-bruxa"><div data-placement="bottom" title="" id="noticia" style="background:url(https://habbonight.com.br/media/acervo/2023/03/4db69c8de8.png);" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; Feshar&lt;/h1&gt;"><div id="deg"><div><span style="color:#ba01ff">Emblemas grátis</span><br>Tutorial: Aprendiz de Bruxa</div></div></div></a>
+				<a href="https://www.habbonight.com.br/noticia/10231-tutorial-do-emblema-kiki"><div data-placement="bottom" title="" id="noticia" style="background:url(https://habbonight.com.br/media/acervo/2023/03/d0c3914656.png);" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; -SerpaNegra&lt;/h1&gt;"><div id="deg"><div><span style="color:#ba01ff">Emblemas grátis</span><br>Tutorial do Emblema: Kiki</div></div></div></a>
+		</div>
+	</div><!--fim noticias-->
+	<div id="divisor"></div>
+	<div id="clear"></div>
+    <div id="elemento">
+   	 	<div id="titulo"><div id="icon" class="list"></div> DISPONÍVEIS NO HABBO HOTEL BR/PT <a href="https://www.habbonight.com.br/noticias/coisas-gratis">(ver todos)</a></div><div id="clear" style="height:9px;"></div>
+		<div id="clear"></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/10236-adquira-jaa-pack-clareira-na-selva"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://images.habbo.com/c_images/album1584/HNM04.png) center no-repeat;"></div><div id="c_name">Adquira já: Pack...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/10235-tutorial-ajudante-da-floresta"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://images.habbo.com/c_images/album1584/UK845.png) center no-repeat;"></div><div id="c_name">Tutorial: Ajudant...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/10233-tutorial-do-emblema-foguinho"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://images.habbo.com/c_images/album1584/PTC27.png) center no-repeat;"></div><div id="c_name">Tutorial do Emble...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/10232-tutorial-aprendiz-de-bruxa"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://images.habbo.com/c_images/album1584/UK847.png) center no-repeat;"></div><div id="c_name">Tutorial: Aprendi...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/10231-tutorial-do-emblema-kiki"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://images.habbo.com/c_images/album1584/PTC26.png) center no-repeat;"></div><div id="c_name">Tutorial do Emble...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/10228-tutorial-tumba-dos-vagalumes"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://images.habbo.com/c_images/album1584/PTC28.png) center no-repeat;"></div><div id="c_name">Tutorial: Tumba d...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/10224-adquira-jaa-pack-hanami"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(http://www.habbonight.com.br/media/acervo/2023/03/f6c546d901.gif) center no-repeat;"></div><div id="c_name">Adquira já: Pack...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/10221-oferta-criaacaoes-habbo"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://images.habbo.com/c_images/album1584/V2321.png) center no-repeat;"></div><div id="c_name">Oferta Criações...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/10173-tutorial-06022023"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://images.habbo.com/c_images/album1584/NFT72.png) center no-repeat;"></div><div id="c_name">Tutorial: 06.02.2...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/10131-tutorial-sexta-feira-13-com-habbo-nft"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://images.habbo.com/c_images/album1584/NFT67.png) center no-repeat;"></div><div id="c_name">Tutorial: Sexta-f...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/10079-tutorial-emblemas-na-vila-natalina"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://www.habbonight.com.br/media/acervo/2022/12/911c898278.png) center no-repeat;"></div><div id="c_name">Tutorial: Emblema...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/9960-tutorial-emblemas-no-evento-habbo-nft-milestone"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://www.habbonight.com.br/media/acervo/2022/11/58f10bc7ea.png) center no-repeat;"></div><div id="c_name">Tutorial: Emblema...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/9952-novidades-coleacaao-dr-sports"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://www.habbonight.com.br/media/acervo/2022/11/595bb394da.png) center no-repeat;"></div><div id="c_name">Novidades: Coleç...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/9929-tutorial-emblema-nft-habboween-party"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://images.habbo.com/c_images/album1584/NFT35.png) center no-repeat;"></div><div id="c_name">Tutorial: Emblema...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/9908-tutorial-emblema-faa-site-oficial-habbonight"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://images.habbo.com/c_images/album1584/BRC66.png) center no-repeat;"></div><div id="c_name">Tutorial: Emblema...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/9817-tutorial-salve-o-vilarejo-dos-goblins"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://habbonight.com.br/media/acervo/2022/09/1ffbeac0d5.png) center no-repeat;"></div><div id="c_name">Tutorial: Salve o...</div></a></div>
+                		<div id="c_gratis"><a href="https://www.habbonight.com.br/noticia/7536-emblemas-faa-sites-oficiais"><div style="width:50px; border-radius:5px; height:50px; margin:px 15px;background:url(https://habbonight.com.br/media/acervo/2022/03/595fc19297.gif) center no-repeat;"></div><div id="c_name">Emblemas Fã-site...</div></a></div>
+        	</div><!--fim c_gratis-->
+
+	<div id="clear"></div>
+    <div id="divisor"></div>
+        <div align="center" style="padding:20px 0px 0px 0px;">
+            <script async="" src="./f.txt" crossorigin="anonymous"></script>
+            <!-- Anúncio HabboNight -->
+            <ins class="adsbygoogle" style="display:inline-block;width:728px;height:100px" data-ad-client="ca-pub-2985021028928902" data-ad-slot="2912509671" data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div id="divisor"></div>    
+    	<div id="elemento">
+	  <div style="float:left;"><!--emblemas-->
+			<div id="titulo"><div id="icon" class="list"></div> ÚLTIMOS EMBLEMAS HOSPEDADOS <a href="https://www.habbonight.com.br/habbo/emblemas">(ver todos)</a></div><div id="clear" style="height:9px;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/HNM17.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;HNM17&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/HNM07.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;HNM07&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/HNM06.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;HNM06&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/HNM05.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;HNM05&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/NFT76.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;NFT76&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/NFT75.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;NFT75&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/US387.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;US387&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/US385.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;US385&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/TC555.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;TC555&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/TC556.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;TC556&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/TC557.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;TC557&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/TC558.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;TC558&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/TC559.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;TC559&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/ES84N.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;ES84N&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/ES85N.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;ES85N&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/ES86N.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;ES86N&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+			<div id="emblema" style="background:url(https://images.habbo.com/c_images/album1584/DE56G.gif) center no-repeat rgb(10, 24, 60)" title="" data-original-title="&lt;b&gt;DE56G&lt;/b&gt;  - por &lt;b&gt;-SerpaNegra&lt;/b&gt;"></div>
+		</div><!--emblemas-->
+	</div>
+	<div id="clear"></div>
+	<div id="divisor"></div>
+
+	<div id="elemento">
+		<div class="topicos"><!--separador forum-->
+			<div id="ferramentas" style="margin-top:-5px; margin-right:7px;"><div id="ferra"></div><div id="seta_d" onclick="topicos.paginacao(&#39;next&#39;)"></div><div id="seta_e" onclick="topicos.paginacao(&#39;prev&#39;)" class="disable"></div></div><div id="titulo"><div id="icon" class="topicos"></div> TÓPICOS RECENTES</div><div id="clear"></div>
+<div id="topicos_att" style="display:table;">
+				<a href="https://www.habbonight.com.br/forum/35794-como-personalizar-seu-perfil-na-hn"><div id="topico" style="margin:5.5px;background:url(media/imagens/deg_forum_img.png) repeat-y right, url(https://habbonight.com.br/media/imagens/fundos/1552446171.gif)"><div id="deg_fix"><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=Fanti&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -7px 0px;"></div><div id="titulo">Como personalizar seu ...</div><div id="comentarios">42</div><div id="detalhes"><span>Fanti</span><br>Categoria: <b>Tutoriais HabboNight</b></div></div></div></a>
+				<a href="https://www.habbonight.com.br/forum/37366-curiosidades-na-web-87"><div id="topico" style="margin:5.5px;background:url(media/imagens/deg_forum_img.png) repeat-y right, url(https://habbonight.com.br/media/imagens/fundos/diversao.png)"><div id="deg"><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=mceandre&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -7px 0px;"></div><div id="titulo">Curiosidades na Web #8...</div><div id="comentarios">2</div><div id="detalhes"><span>mceandre</span><br>Categoria: <b>Curiosidades</b></div></div></div></a>
+				<a href="https://www.habbonight.com.br/forum/37365-o-pensamento-positivo-pode-curar-doencas"><div id="topico" style="margin:5.5px;background:url(media/imagens/deg_forum_img.png) repeat-y right, url(https://habbonight.com.br/media/imagens/padrao.png)"><div id="deg"><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=-SerpaNegra&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -7px 0px;"></div><div id="titulo">O pensamento positivo ...</div><div id="comentarios">2</div><div id="detalhes"><span>-SerpaNegra</span><br>Categoria: <b>Assuntos gerais</b></div></div></div></a>
+				<a href="https://www.habbonight.com.br/forum/37363-dia-de-hoje-198"><div id="topico" style="margin:5.5px;background:url(media/imagens/deg_forum_img.png) repeat-y right, url(https://habbonight.com.br/media/imagens/fundos/diversao.png)"><div id="deg"><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=mceandre&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -7px 0px;"></div><div id="titulo">Dia de Hoje #198</div><div id="comentarios">2</div><div id="detalhes"><span>mceandre</span><br>Categoria: <b>Curiosidades</b></div></div></div></a>
+				<a href="https://www.habbonight.com.br/forum/37367-o-que-sao-os-planetas-orfaos-do-universo"><div id="topico" style="margin:5.5px;background:url(media/imagens/deg_forum_img.png) repeat-y right, url(https://habbonight.com.br/media/imagens/padrao.png)"><div id="deg"><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=-SerpaNegra&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -7px 0px;"></div><div id="titulo">O que são os planetas...</div><div id="comentarios">2</div><div id="detalhes"><span>-SerpaNegra</span><br>Categoria: <b>Curiosidades</b></div></div></div></a>
+				<a href="https://www.habbonight.com.br/forum/37368-10-curiosidades-gerais"><div id="topico" style="margin:5.5px;background:url(media/imagens/deg_forum_img.png) repeat-y right, url(https://habbonight.com.br/media/imagens/padrao.png)"><div id="deg"><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=-SerpaNegra&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -7px 0px;"></div><div id="titulo">10 Curiosidades Gerais</div><div id="comentarios">2</div><div id="detalhes"><span>-SerpaNegra</span><br>Categoria: <b>Curiosidades</b></div></div></div></a>
+				<a href="https://www.habbonight.com.br/forum/37364-fatos-historicos-213"><div id="topico" style="margin:5.5px;background:url(media/imagens/deg_forum_img.png) repeat-y right, url(https://habbonight.com.br/media/imagens/fundos/diversao.png)"><div id="deg"><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=mceandre&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -7px 0px;"></div><div id="titulo">Fatos Históricos #213</div><div id="comentarios">2</div><div id="detalhes"><span>mceandre</span><br>Categoria: <b>Curiosidades</b></div></div></div></a>
+				<a href="https://www.habbonight.com.br/forum/37371-10-curiosidades-sobre-portugal"><div id="topico" style="margin:5.5px;background:url(media/imagens/deg_forum_img.png) repeat-y right, url(https://habbonight.com.br/media/imagens/padrao.png)"><div id="deg"><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=Fullmoon_&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -7px 0px;"></div><div id="titulo">10 Curiosidades sobre ...</div><div id="comentarios">0</div><div id="detalhes"><span>Fullmoon_</span><br>Categoria: <b>Deu aloka!</b></div></div></div></a>
+				<a href="https://www.habbonight.com.br/forum/37370-20-curiosidades-sobre-o-brasil-que-voce-nao-pode-morrer-sem-saber"><div id="topico" style="margin:5.5px;background:url(media/imagens/deg_forum_img.png) repeat-y right, url(https://habbonight.com.br/media/imagens/padrao.png)"><div id="deg"><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=Fullmoon_&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -7px 0px;"></div><div id="titulo">20 curiosidades sobre ...</div><div id="comentarios">0</div><div id="detalhes"><span>Fullmoon_</span><br>Categoria: <b>Curiosidades</b></div></div></div></a>
+</div>
+		</div><!--separador forum-->
+	</div>	
+	<div id="clear"></div>
+	<div id="divisor"></div>
+	<div id="elemento" class="pixels">
+		<div id="ferramentas"><div id="ferra"></div><div id="seta_d" onclick="pixels.paginacao(&#39;next&#39;,&#39;4&#39;)"></div><div id="seta_e" onclick="pixels.paginacao(&#39;prev&#39;,&#39;4&#39;)" class="disable"></div></div><div id="titulo"><div id="icon" class="pixel"></div> ARTES RECENTES</div>
+		<div id="clear"></div>
+			<div class="box_pixels">
+				<a href="https://www.habbonight.com.br/pixel/5301-emblema-stronda-mix"><div id="pixel" data-placement="bottom" title="" style="background:url(https://habbonight.com.br/media/pixels/13fade3fd3ea9b3d0e10aadc618dc83e.png) no-repeat center;" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; -SerpaNegra&lt;/h1&gt;"><div id="nota">10</div><div id="deg"><div><span>Emblemas</span><br>Emblema: Stronda Mix</div></div></div></a>
+				<a href="https://www.habbonight.com.br/pixel/5300-meu-avatar"><div id="pixel" data-placement="bottom" title="" style="background:url(https://habbonight.com.br/media/pixels/7608560a68d2dc04548ca528f713ade6.png) no-repeat center;" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; -SerpaNegra&lt;/h1&gt;"><div id="nota">10</div><div id="deg"><div><span>Avatares</span><br>Meu avatar</div></div></div></a>
+				<a href="https://www.habbonight.com.br/pixel/5298-logo-campanha-ancestrais-2022"><div id="pixel" data-placement="bottom" title="" style="background:url(https://habbonight.com.br/media/pixels/0bd0c646549b509482776d9cb92c9c39.gif) no-repeat center;" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; BrunozH.&lt;/h1&gt;"><div id="nota">9</div><div id="deg"><div><span>Logomarcas</span><br>Logo Campanha "ANCESTRAIS" 2022</div></div></div></a>
+				<a href="https://www.habbonight.com.br/pixel/5297-emblema--mashirow"><div id="pixel" data-placement="bottom" title="" style="background:url(https://habbonight.com.br/media/pixels/d92bf4a3aaff46a6f527e8daa6e7bdbc.png) no-repeat center;" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; Luskat&lt;/h1&gt;"><div id="nota">9.6</div><div id="deg"><div><span>Emblemas</span><br>Emblema - Mashirow</div></div></div></a>
+				<div id="clear"></div>
+			</div>
+	</div><!--fim pixels-->
+
+	<div id="clear"></div>
+	<div id="divisor"></div>
+	<div id="elemento">
+		<div style="float:left;"><!--destaques-->
+			<div id="titulo"><div id="icon" class="list"></div> DESTAQUES DA HABBONIGHT</div>
+			<div id="clear" style="height:10px;"></div>
+			<div id="destaque_equipe" class="destaque">
+				<div id="avatar" data-placement="bottom" title="" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=Nightzeiro&amp;action=norm&amp;direction=2&amp;head_direction=3&amp;gesture=sml&amp;size=l) -20px -16px;" data-original-title="Visitar NightHome"></div>
+				<div id="texto"><span>Nightzeiro</span><br>Em manutenção!
+</div>
+			</div>
+			<div id="destaque" class="destaque">
+				<div id="avatar" data-placement="bottom" title="" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=RealHabboNight&amp;action=norm&amp;direction=2&amp;head_direction=3&amp;gesture=sml&amp;size=l) -20px -16px;" data-original-title="Visitar NightHome"></div>
+				<div id="texto"><span>RealHabboNight</span><br>Em manutenção!</div>
+			</div>
+
+			<a href="https://www.habbonight.com.br/pixel/5227-logo-nightzeiro-de-carteirinha"><div id="destaque_pixel" data-placement="bottom" title="" style="background:url(https://habbonight.com.br/media/pixels/7d015905590e0f164c2a5a87678e9cbd.png) no-repeat center #040C25;" data-original-title="&lt;h1&gt;&lt;span style=&#39;color:#01a5f6&#39;&gt;Por:&lt;/span&gt; BrunozH.&lt;/h1&gt;"><div id="nota">8</div><div id="deg"><div><span>Logomarcas</span><br>Logo Nightzeiro de Carteirinha</div></div></div></a>
+		</div><!--fim destaques-->
+		
+</div>
+		<div id="clear"></div>
+
+	<div id="clear"></div>
+	<div id="divisor"></div>
+	<div id="elemento">
+		<div id="title_lets"><a href="https://www.habbonight.com.br/lets"><div style="background:#faca30; float:left; padding:5px; border-radius:5px; color:#004B67; font-family:Tahoma; font-size:11px; font-weight:bold;box-shadow:0px 2px 0px rgba(0,0,0,0.3);border-bottom:3px solid #94802c;text-shadow:0px 1px rgba(255,255,255,0.5); margin-top:-10px; margin-left:35px;">Mobis</div></a>
+<a href="https://www.habbonight.com.br/lets-fundos"><div style="background:#faca30; float:left; padding:5px; border-radius:5px; color:#004B67; font-family:Tahoma; font-size:11px; font-weight:bold;box-shadow:0px 2px 0px rgba(0,0,0,0.3);border-bottom:3px solid #94802c;text-shadow:0px 1px rgba(255,255,255,0.5); margin-top:-10px; margin-left:5px;">Fundos</div></a></div>
+<script>
+var lets_sho = {
+	comprar: function(mobi, quarto){
+		if(!confirm('Você irá gastar NightPoints. Deseja prosseguir?')) {
+			return false;
+		}
+		$.ajax({
+			type: "POST",
+			data: {'carrega':'sim', 'mobi':mobi, 'tipo':'comprar', 'tipop':'mobi'},
+			url: "lib/lets.php",
+			beforeSend: function(){
+			},
+			success: function(data){
+				if(data == 'sem_fundos'){
+					abrir.alerta('Opa!','<div id="box_erro" class="red">Você não possui NightPoints suficientes!</div>');
+				} else if(data == 'ja_comprado'){
+					abrir.alerta('Opa!','<div id="box_erro" class="red">Alguém já comprou essa mobília!</div>');
+				} else if(data == 'equipe_erro'){
+					abrir.alerta('Opa!','<div id="box_erro" class="blue"><i class="fa fa-exclamation-triangle" style="font-size:16px; margin-right:5px;"></i> Essa mobília não está liberada para a equipe. Estou de olho em você <b></b>!</div>');
+				} else if(data == 'erro_5min'){
+					abrir.alerta('Opa!','<div id="box_erro" class="red"><i class="fa fa-exclamation-triangle" style="font-size:16px; margin-right:5px;"></i> Você acabou de comprar uma mobília, aguarde pelo menos 5 minutos para comprar outra!</div>');
+				} else if(data == 'comprado'){
+					abrir.alerta('Parabéns!','<div id="box_erro" class="green">Você comprou a mobília com sucesso!!! <a style="color:#fff" target="_blank" href="'+quarto+'">CLIQUE AQUI</a> para pegar a sua mobília!</div>');
+				} else {
+					abrir.alerta('Erro','Algum erro ocorreu durante o processo!');
+				} 
+			}
+		});	
+	}
+}
+</script>
+<!--https://habbonight.com.br/lib/coelho_creator.php?habbo=$lets["autor"]-->
+		<div id="lets" title="" style="background-image:url(https://habbonight.com.br/media/valores/G_43b85c23cdd9f71f98273eb8cec14b5c.png);" data-original-title="Óculos Sangrentos"><div id="align"><div id="item">20</div><div id="item"><div id="disponivel" style="cursor:pointer" data-placement="bottom" title="" onclick="lets_sho.comprar(&#39;5116&#39;, &#39;https://www.habbo.com.br/room/138065587&#39;)" data-original-title="Compre este mobi por 20 NPs"></div></div><div id="item"><div data-placement="bottom" title="" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=Feshar&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) no-repeat -5px -10px; width:55px; height:65px;" data-original-title="Vendido por: Feshar"></div></div></div></div>
+<!--https://habbonight.com.br/lib/coelho_creator.php?habbo=$lets["autor"]-->
+		<div id="lets" title="" style="background-image:url(https://habbonight.com.br/media/valores/G_43b85c23cdd9f71f98273eb8cec14b5c.png);" data-original-title="Óculos Sangrentos"><div id="align"><div id="item">20</div><div id="item"><div id="disponivel" style="cursor:pointer" data-placement="bottom" title="" onclick="lets_sho.comprar(&#39;5115&#39;, &#39;https://www.habbo.com.br/room/138065587&#39;)" data-original-title="Compre este mobi por 20 NPs"></div></div><div id="item"><div data-placement="bottom" title="" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=Feshar&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) no-repeat -5px -10px; width:55px; height:65px;" data-original-title="Vendido por: Feshar"></div></div></div></div>
+<!--https://habbonight.com.br/lib/coelho_creator.php?habbo=$lets["autor"]-->
+		<div id="lets" title="" style="background-image:url(https://habbonight.com.br/media/valores/G_43b85c23cdd9f71f98273eb8cec14b5c.png);" data-original-title="Óculos Sangrentos"><div id="align"><div id="item">20</div><div id="item"><div id="disponivel" style="cursor:pointer" data-placement="bottom" title="" onclick="lets_sho.comprar(&#39;5114&#39;, &#39;https://www.habbo.com.br/room/138065587&#39;)" data-original-title="Compre este mobi por 20 NPs"></div></div><div id="item"><div data-placement="bottom" title="" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=Feshar&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) no-repeat -5px -10px; width:55px; height:65px;" data-original-title="Vendido por: Feshar"></div></div></div></div>
+<!--https://habbonight.com.br/lib/coelho_creator.php?habbo=$lets["autor"]-->
+		<div id="lets" title="" style="background-image:url(https://habbonight.com.br/media/valores/G_835168f154a7fcc69081eb606b4cb268.png);" data-original-title="Cardigã de duas core"><div id="align"><div id="item">20</div><div id="item"><div id="disponivel" style="cursor:pointer" data-placement="bottom" title="" onclick="lets_sho.comprar(&#39;5113&#39;, &#39;https://www.habbo.com.br/room/138065587&#39;)" data-original-title="Compre este mobi por 20 NPs"></div></div><div id="item"><div data-placement="bottom" title="" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=Feshar&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) no-repeat -5px -10px; width:55px; height:65px;" data-original-title="Vendido por: Feshar"></div></div></div></div>
+		<div id="clear"></div>
+			</div>
+
+	<div id="clear"></div>
+	<div id="divisor"></div>
+	<div id="elemento">
+		<div style="width:279px; float:right;"><!--separador premios da vez-->
+			<div id="titulo"><div id="icon" class="list"></div> PRÊMIOS DA VEZ</div>
+			<div id="clear" style="height:20px;"></div>
+			<div id="box_premios">
+				<div class="fechado"></div>				<span>Quantos anos a HabboNight completou no dia 27/07/22?</span><br>Prêmio: 10 NightPoint(s)<br><i>Ex: 19</i><br>
+				<form action="javascript:;" id="form_premiosdavez">
+					<input type="text" id="premiosdavez_resposta" placeholder="19">
+					<input type="submit" value="ENVIAR!">
+				</form>
+			</div>
+		</div><!--separador evento-->
+		<div style="width:644px; float:left;"><!--separador top music-->
+			<div id="titulo"><div id="icon" class="music"></div> TOP MUSIC</div>
+			<div id="clear" style="height:20px;"></div>
+			<div onclick="abrir.top_music(&#39;r9GrcxTGNWg&#39;)" id="top1" style="background-image:url(https://img.youtube.com/vi/r9GrcxTGNWg/0.jpg)"><div id="deg"><div id="position">1º</div><div id="texto"><span>AgroPlay e Ana Castela</span><br>Nosso Quadro</div></div></div>
+			<div style="width:256px; float:left;margin-left:10px;">
+				<div id="top_m" onclick="abrir.top_music(&#39;tI55Zu9uZEM&#39;)" style="background-image:url(https://img.youtube.com/vi/tI55Zu9uZEM/0.jpg)"><div id="deg"><div id="position">2º</div><div id="texto"><span>Marília Mendonça</span><br>Leão</div></div></div>
+				<div id="top_m" onclick="abrir.top_music(&#39;0cnUcoXllMM&#39;)" style="background-image:url(https://img.youtube.com/vi/0cnUcoXllMM/0.jpg)"><div id="deg"><div id="position">3º</div><div id="texto"><span>Léo Santana</span><br>Zona de Perigo</div></div></div>
+				<div id="top_m" onclick="abrir.top_music(&#39;ndUy45x88E8&#39;)" style="background-image:url(https://img.youtube.com/vi/ndUy45x88E8/0.jpg)"><div id="deg"><div id="position">4º</div><div id="texto"><span> Treyce</span><br>Lovezinho</div></div></div>
+				<div id="top_m" onclick="abrir.top_music(&#39;t050lriI0_w&#39;)" style="background-image:url(https://img.youtube.com/vi/t050lriI0_w/0.jpg)"><div id="deg"><div id="position">5º</div><div id="texto"><span>Israel &amp; Rodolffo e Ana Castela</span><br>Bombonzinho</div></div></div>
+			</div>
+		</div><!--separador top music-->
+	</div>
+	
+	<div id="clear"></div>
+	<div id="divisor"></div>
+		<div onclick="rankings.paginacao(1)" id="seta_e_r" class="disable"><i class="fa fa-angle-left"></i></div>
+		<div onclick="rankings.paginacao(2)" id="seta_d_r"><i class="fa fa-angle-right"></i></div>
+		<div id="elemento" style="overflow: hidden; max-height: 500px">
+		<div class="move_ranking" style="width:1615px">
+			<div style="width:285px; float:left;margin-right:38px;"><!--ranking forum-->
+				<div id="ferramentas" style="margin-right:7px; margin-top:-8px;"><div data-ranking="true" data-target="ranking_forum" id="ferra"><div id="options"><div data-action="forum" data-cat="dia">Diário</div><div data-action="forum" data-cat="semana">Semanal</div><div data-action="forum" data-cat="mensal">Mensal</div><div data-action="forum" data-cat="sempre">Sempre</div></div></div></div>
+				<div id="titulo"><div id="icon" class="list"></div> RANKING DO FÓRUM</div>
+				<div id="clear" style="height:10px;"></div>
+				<div id="box_ranking">
+					<div id="ranking_forum" style="height:210px; overflow:hidden;">
+	
+						<div class="ranking"><div id="position">1</div><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=-SerpaNegra&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -10px -14px;"></div><div id="details"><span>-SerpaNegra</span><br>27 comentários</div></div>
+	
+						<div class="ranking"><div id="position">2</div><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=mceandre&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -10px -14px;"></div><div id="details"><span>mceandre</span><br>10 comentários</div></div>
+	
+						<div class="ranking"><div id="position">3</div><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=Bunneco:&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -10px -14px;"></div><div id="details"><span>Bunneco:</span><br>8 comentários</div></div>
+	
+						<div class="ranking"><div id="position">4</div><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=marianaraiden&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -10px -14px;"></div><div id="details"><span>marianaraiden</span><br>8 comentários</div></div>
+	
+						<div class="ranking"><div id="position">5</div><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=Fullmoon_&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -10px -14px;"></div><div id="details"><span>Fullmoon_</span><br>6 comentários</div></div>
+						</div>
+					<div data-ranking="forum" class="seta_ranking"></div>
+				</div>
+				<a href="https://www.habbonight.com.br/forum/ranking"><div id="lista_completa">VER LISTA COMPLETA</div></a>
+			</div><!--fim do ranking do forum-->
+			
+			<div style="width:285px; float:left;margin-right:38px;"><!--ranking noticias-->
+				<div id="ferramentas" style="margin-right:7px; margin-top:-8px;"><div data-ranking="true" data-target="ranking_noticias" id="ferra"><div id="options"><div data-action="noticias" data-cat="dia">Diário</div><div data-action="noticias" data-cat="semana">Semanal</div><div data-action="noticias" data-cat="mensal">Mensal</div><div data-action="noticias" data-cat="sempre">Sempre</div></div></div></div>
+				<div id="titulo"><div id="icon" class="list"></div> RANKING DE NOTÍCIAS</div>
+				<div id="clear" style="height:10px;"></div>
+				<div id="box_ranking">
+					<div id="ranking_noticias" style="height:210px; overflow:hidden;">
+							<div class="ranking"><div id="position">1</div><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=-SerpaNegra&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -10px -14px;"></div><div id="details"><span>-SerpaNegra</span><br>15 comentários</div></div>
+							<div class="ranking"><div id="position">2</div><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=mceandre&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -10px -14px;"></div><div id="details"><span>mceandre</span><br>14 comentários</div></div>
+							<div class="ranking"><div id="position">3</div><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user==vc&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -10px -14px;"></div><div id="details"><span>=vc</span><br>12 comentários</div></div>
+							<div class="ranking"><div id="position">4</div><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=marianaraiden&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -10px -14px;"></div><div id="details"><span>marianaraiden</span><br>11 comentários</div></div>
+							<div class="ranking"><div id="position">5</div><div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=Feshar&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) -10px -14px;"></div><div id="details"><span>Feshar</span><br>9 comentários</div></div>
+						</div>
+					<div data-ranking="noticias" class="seta_ranking"></div>
+				</div>
+				<a href="https://www.habbonight.com.br/noticias/ranking"><div id="lista_completa">VER LISTA COMPLETA</div></a>
+			</div><!--fim do ranking do noticias-->
+			<div style="width:285px; float:left;margin-right:38px;"><!--ranking presencial-->
+				<div id="ferramentas" style="margin-right:7px; margin-top:-8px;"><div data-ranking="true" data-target="ranking_presenca" id="ferra"><div id="options"><div data-action="presenca" data-cat="dia">Diário</div><div data-action="presenca" data-cat="semana">Semanal</div><div data-action="presenca" data-cat="mensal">Mensal</div><div data-action="presenca" data-cat="sempre">Sempre</div></div></div></div>
+				<div id="titulo"><div id="icon" class="list"></div> RANKING PRESENCIAL</div>
+				<div id="clear" style="height:10px;"></div>
+				<div id="box_ranking">
+					<div id="ranking_presenca" style="height:210px; overflow:hidden;">
+						</div>
+					<div data-ranking="presenca" class="seta_ranking"></div>
+				</div>
+				<a href="https://www.habbonight.com.br/ranking-presenca"><div id="lista_completa">VER LISTA COMPLETA</div></a>
+			</div><!--fim ranking presencial-->
+		</div><!--move ranking-->
+	</div>
+		<div id="clear"></div><!--<iframe src="https://habbonight.com.br/playeroff.php" name="player" scrolling="No" noresize="noresize" style="opacity:0; height:0px;display:none"></iframe>-->
+<!--https://www.habbo.com.br/habbo-imaging/avatarimage?user=AutoNight&action=norm&direction=3&head_direction=3&gesture=sml&size=m-->
+	<div id="player_fixo">
+		<div id="ouvintes" data-hover="50">50</div>
+		<div id="avatar" style="background:url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=AutoNight&amp;action=norm&amp;direction=3&amp;head_direction=3&amp;gesture=sml&amp;size=m) no-repeat 7px -5px; width:80px; height:80px; margin-top:-25px; margin-left:-15px; float:left;"><div id="microfone" style="position:absolute;z-index:9999999"></div></div>
+		<div id="texto"><i style="font-size:14px; margin-right:3px;" class="fa fa-repeat fa-spin"></i> ONLINE: <span class="locutor">AutoNight</span> - <span class="programa" style="font-size:12px; color:#fff;">Tocando todas</span></div>
+	</div>
+
+	<div id="clear"></div>
+	<div id="divisor"></div>
+	<div id="creditos">
+		<div id="menu_footer"><ul><!--<li><a href="#">SOBRE NóS</a></li><li><a href="https://twitter.com/HabboNight">CONTATO</a></li>--><li><a href="https://www.habbonight.com.br/habbonight/equipe">EQUIPE</a></li><li><a href="https://www.facebook.com/OficialHabbonight" target="_blank">FACEBOOK</a></li><li><a href="https://twitter.com/HabboNight" target="_blank">TWITTER</a></li><li><a href="https://discord.gg/HfrVn7RpEY" target="_blank">DISCORD</a></li></ul></div>
+		<div id="copyright"><div id="clear"></div>Copyrights © Habbonight 2010 ~ 2023<br>Todos direitos reservados à HabboNight. Plágio é crime.<br><div style="font-size: 11px;margin: 10px 0 0 0;">Esta Fã Site não está afiliada com, patrocinada por, apoiada por, ou principalmente aprovada pela Sulake Oy ou suas empresas Afiliadas. Esta Fã Site pode utilizar as marcas registradas e outras propriedades intelectuais do Habbo, que estão permitidas sob a Política de Fã Sites Habbo.</div><br><span>Layout desenvolvido por @Mozart (Amadeus Portugal),<br>Janjao.ban (Jorge) e MarcioPG.BAN (Márcio Palheta).</span></div>
+	</div>
+</div>
+<a id="botao" class="lets_login" style="cursor:pointer;">
+<div style="background:rgba(0, 0, 0, 0.25);height:45px;width:45px;border-radius:6px;border-bottom:2px solid rgba(0, 0, 0, 0.26);margin:80px 0 0 5px;bottom:105px;left:7px;position:fixed;z-index:9;" data-placement="right" title="" data-original-title="Novos itens">
+	<div style="background:url(https://images.habbo.com/c_images/album1584/IT509.gif) no-repeat center;height:40px;width:40px;padding:7px 0 0 3px;"></div>
+	<div style="font-weight:bold;color:rgb(255,255,255);background:#b20000; float:right; font-size:9px; position:absolute;text-shadow:none; margin-left: 26px; padding:2px; border-radius:5px; margin-top: -19px; font-family:Verdana; display:block;border-bottom: 2px solid rgb(101, 16, 16);">11</div>
+</div>
+</a>
+<div id="player_co"></div>
+<div id="clear"></div>
+<div id="login" class="animated bounceInDown" style="display: block;">
+<div id="fecha_login">×</div>
+	<div id="avatarzao"><div id="base"><div id="texto"><span>Olá, Bem-vind@!</span><br>Preencha todos os dados ao lado para efetuar o login.</div><div id="avatar" class="avt_l" style="background: url(&quot;media/imagens/frank.png&quot;);"></div></div></div>
+	<form action="javascript:;" id="form_logar">
+	<div id="inputs">
+		<div id="ajusta_n">
+        <div id="icon_login"></div><input class="login_nome" autocomplete="off" id="login_nome" type="text" placeholder="NICKNAME">
+        <div id="clear"></div>
+        <div id="icon_senha"></div><input class="login_senha" autocomplete="off" type="password" placeholder="*********">
+        <div id="clear"></div>
+        <div class="checkbox">
+            <input type="checkbox" value="None" id="squaredThree" class="lembrar" name="check">
+            <label for="squaredThree"></label>
+            <div>LEMBRAR-ME!</div>
+        </div>
+		<a href="https://www.habbonight.com.br/usuario/recuperar"><div id="recupera">RECUPERAR SENHA</div></a>
+        <div id="clear"></div>
+        <input type="submit" id="enviar" value="ENVIAR!">
+		</div>
+    </div>
+	</form>
+</div>
+<div id="regitro_form">
+<div id="fecha_registro">×</div>
+	<div id="avatarzao"><div id="base"><div id="texto"><span>Registro na HabboNight!</span><br>Preencha todos os dados ao lado com dados verdadeiros.</div><div id="avatar" class="avt_r" style="background:url(media/imagens/frank.png);"></div></div></div>
+	<form action="javascript:;" id="form_registrar">
+	<div id="inputs">
+		<div id="ajusta_n" style="margin-top:-282px;">
+        <input class="registro_nome" autocomplete="off" required="required" id="registro_nome" type="text" placeholder="DIGITE SEU NICK!">
+        <div id="clear"></div>
+        <input class="registro_email" autocomplete="off" required="required" id="login_nome" type="text" placeholder="DIGITE SEU E-MAIL!">
+                <div id="clear"></div>
+        <div class="checkbox" style="width:313px;margin-left: 1px;margin-top: -27px;font-size: 10px !important;margin-bottom: 6px;">
+            <div style="width:auto;font-size: 11px;">Recomendamos que NÃO utilize o mesmo e-mail que utiliza no Habbo Hotel.</div>
+        </div>
+        <div id="clear"></div>
+        <input class="registro_senha1" id="login_senha" type="password" placeholder="DIGITE SUA SENHA!">
+        <div id="clear"></div>
+        <div class="checkbox" style="width:313px;margin-left: 1px;margin-top: -27px;font-size: 10px !important;margin-bottom: 6px;">
+            <div style="width:auto;font-size: 11px;">Recomendamos que NÃO utilize a mesma senha que utiliza no Habbo Hotel.</div>
+        </div>
+        <div id="clear"></div>
+        <input class="registro_senha2" id="login_senha" type="password" placeholder="REPITA SUA SENHA!">
+        <div id="clear"></div>
+        <div class="checkbox" style="width:374px;margin-left:-5px;">
+            <i class="fa fa-exclamation-triangle" style="font-size:17px;color:#FFF;"></i>
+            <div style="width:auto;">Mude sua missão HABBO para: <u id="codigo_registro">HN-2C66E4B</u></div>
+        </div>
+        <div id="clear"></div>
+        <div class="checkbox" style="width:350px;margin-left:-19px;">
+            <input type="checkbox" class="termos_uso" value="None" id="squared" name="check">
+            <label for="squared"></label>
+            <div style="width:auto;">CONCORDO COM OS <u>TERMOS DE USO</u>!</div>
+        </div>
+        <div id="clear"></div>
+        <input type="submit" id="enviar" value="ENVIAR!">
+		</div>
+    </div>
+	</form>
+</div>
+
+
+
+</body></html>

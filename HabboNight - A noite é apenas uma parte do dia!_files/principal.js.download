@@ -1,0 +1,882 @@
+﻿(function(e,t,n){function i(e){return e}function s(e){return decodeURIComponent(e.replace(r," "))}var r=/\+/g;var o=e.cookie=function(r,u,a){if(u!==n){a=e.extend({},o.defaults,a);if(u===null){a.expires=-1}if(typeof a.expires==="number"){var f=a.expires,l=a.expires=new Date;l.setDate(l.getDate()+f)}u=o.json?JSON.stringify(u):String(u);return t.cookie=[encodeURIComponent(r),"=",o.raw?u:encodeURIComponent(u),a.expires?"; expires="+a.expires.toUTCString():"",a.path?"; path="+a.path:"",a.domain?"; domain="+a.domain:"",a.secure?"; secure":""].join("")}var c=o.raw?i:s;var h=t.cookie.split("; ");for(var p=0,d=h.length;p<d;p++){var v=h[p].split("=");if(c(v.shift())===r){var m=c(v.join("="));return o.json?JSON.parse(m):m}}return null};o.defaults={};e.removeCookie=function(t,n){if(e.cookie(t)!==null){e.cookie(t,null,n);return true}return false}})(jQuery,document);var carregando = '<svg width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><g><animateTransform attributeName="transform" type="rotate" values="0 33 33;270 33 33" begin="0s" dur="1.4s" fill="freeze" repeatCount="indefinite"/><circle fill="none" stroke-width="3" stroke-linecap="round" cx="33" cy="33" r="30" stroke-dasharray="187" stroke-dashoffset="610"><animate attributeName="stroke" values="#4285F4;#DE3E35;#F7C223;#1B9A59;#4285F4" begin="0s" dur="5.6s" fill="freeze" repeatCount="indefinite"/><animateTransform attributeName="transform" type="rotate" values="0 33 33;135 33 33;450 33 33" begin="0s" dur="1.4s" fill="freeze" repeatCount="indefinite"/><animate attributeName="stroke-dashoffset" values="187;46.75;187" begin="0s" dur="1.4s" fill="freeze" repeatCount="indefinite"/></circle></g></svg>';function selecao(obj, def_texto_padrao){     if(obj.constructor == String){obj = document.getElementById(obj);}var def_texto = (def_texto_padrao) ? function(text){obj.value += text;} : function(){return false;};var selecao = {text: "", defTexto: def_texto};if(document.selection){var faixa = document.selection.createRange();if(faixa.text){selecao.text = faixa.text;selecao.defTexto = function(text){faixa.text = text.replace(/\r?\n/g, "\r\n");}}} else if(typeof(obj.selectionStart) != "undefined"){selecao.text = obj.value.substring(obj.selectionStart, obj.selectionEnd);selecao.defTexto = function(text){obj.value = obj.value.substring(0, obj.selectionStart) + text + obj.value.substring(obj.selectionEnd);return false;}} else if(window.getSelection){selecao.text = window.getSelection().toString();}     return selecao; }function setBBCode(obj, antes, depois){var selecionado = selecao(obj, false);selecionado.defTexto(antes + selecionado.text + depois);$('#'+obj).focus(); } function setAltBBCode(obj, tipo, objthis){valor = objthis.value;var selecionado = selecao(obj, true);selecionado.defTexto('['+tipo+'='+valor+']' + selecionado.text + '[/'+tipo+']');objthis.value='';$('#'+obj).focus(); } function carregaEmo(obj, expressao){var selecionado = selecao(obj, true);selecionado.defTexto(selecionado.text+'['+expressao+']');$('#'+obj).focus();}
+
+var Carregar = function(options){
+	var defaults = {
+		 estilo : 'dark'
+	}
+	var o = $.extend(defaults, options);
+    var corpo_carregar;
+    var background_estilo = (o.estilo == "light")?("background:rgba(255,255,255,0.4);"):((o.estilo == "dark")?("background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);background: radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#00000000',GradientType=1 );"):(""));
+    iniciar = function() {
+		var existLoad = $(o.elemento).find('#Carregando');
+		if(existLoad.length>0){}else{
+			var width = $(o.elemento).width();
+			var height = $(o.elemento).height();
+			corpo_carregar = $('<div style="width:'+width+'px; height:'+height+'px;'+background_estilo+'" id="Carregando">'+carregando+'</div>');
+			$(corpo_carregar).prependTo(o.elemento);
+			corpo_carregar.fadeIn(400);
+		}
+		
+    }
+
+    remover = function() {
+        $("#Carregando").remove();
+    }
+    iniciar();
+}
+
+var site = {
+	logado:false,
+	iniciar: function(){
+		$('[data-ranking]').each(function(){
+			$(this).click(function(){
+				var aa = $(this).data('ranking');
+				if($("#ranking_"+aa).css("height") == "210px"){
+					$("#ranking_"+aa).animate({height:'350px'},200);
+					$(this).css("background-image","url(media/imagens/seta_ranking2.png)");
+				}else{
+					$("#ranking_"+aa).animate({height:'210px'},200);
+					$(this).css("background-image","url(media/imagens/seta_ranking.png)");
+				}
+			});
+		});
+		site.alertas();
+		$('[title]').tooltip({html: true});
+		$('#player_fixo i').click(function(){radio.atualizar()});
+		$('#player i').click(function(){radio.atualizar()});
+		
+		$('<audio id="notification_sound" src="assets/notificacao.mp3" type="audio/mpeg"></audio>').prependTo("body");
+		var player_aberto = $.cookie('player_aberto');
+		if(player_aberto == 'aberto'){
+			$("#seta_player").removeClass('abre_p').addClass('fecha_p');
+			$("#barra_player").animate({height:'87px'},200);
+		}
+		var title = document.title;
+		$('#icon_notificacoes').click(function(){
+			$("#notificacoes").slideToggle(300);
+			usuario.notificacoes();
+		});
+		$("#seta_player").click(function(){
+			var player_aberto = $(this).attr('class');
+			if(player_aberto == 'abre_p'){
+				$(this).removeClass('abre_p').addClass('fecha_p');
+				$("#barra_player").animate({height:'87px'},200);
+				$.cookie('player_aberto', 'aberto', { expires: 10, path: '/' });
+			} else {
+				$(this).removeClass('fecha_p').addClass('abre_p');
+				$("#barra_player").animate({height:'0px'},200);
+				$.cookie('player_aberto', 'fechado', { expires: 10, path: '/' });
+			}
+		});
+		$("#logar").click(function(){
+			$('#login').fadeIn().addClass('animated bounceInDown');
+			$('html').css('overflow','hidden');
+		});
+		$("#fecha_login").click(function(){
+			$('#login').fadeOut().removeClass();
+			$('html').css('overflow','auto');
+		});
+		$("#registrar, #registrar_menu").click(function(){
+			$('#regitro_form').fadeIn().addClass('animated bounceInDown');
+			$('html').css('overflow','hidden');
+		});
+		$("#fecha_registro").click(function(){
+			$('#regitro_form').fadeOut().removeClass();
+			$('html').css('overflow','auto');
+		});
+		$('#registro_nome').keyup(function(){
+			if($.trim($(this).val()) == ''){
+				var imagem = "url(media/imagens/frank.png)";
+			} else {
+				var imagem = "url(https://www.habbo.com.br/habbo-imaging/avatarimage?user="+$.trim($(this).val())+"&action=wav&direction=2&head_direction=3&gesture=sml&size=l";
+			}
+			$('.avt_r').css('background', imagem);
+		});
+		$('#login_nome').keyup(function(){
+			if($.trim($(this).val()) == ''){
+				var imagem = "url(media/imagens/frank.png)";
+			} else {
+				var imagem = "url(https://www.habbo.com.br/habbo-imaging/avatarimage?user="+$.trim($(this).val())+"&action=wav&direction=2&head_direction=3&gesture=sml&size=l";
+			}
+			$('.avt_l').css('background', imagem);
+		});
+
+	},
+	alertas: function(){
+		$.ajax({
+			type: 'POST',
+			dataType: 'json',
+			url: 'lib/alerta.php',
+			success: function(data) {
+				if(data.num_nots > 0){
+					for(var i = 0; i < data.num_nots; i++){
+						$.notify({title: 'Nova not&iacute;cia', text: 'Uma nova <a>not&iacute;cia</a> foi postada, confira a novidade:<br> <a href="'+data.noticia[i].links+'">'+data.noticia[i].titulo+'</a>', },{className: "not&iacute;cia",autoHide: false,});
+					}
+				}
+				if(data.num_topicos > 0){
+					for(var i = 0; i < data.num_topicos; i++){
+						$.notify({title: 'Novo t&oacute;pico', text: 'O usu&aacute;rio <a>'+data.topico[i].autor+'</a> postou um novo <a href="'+data.topico[i].links+'">t&oacute;pico</a><br> em nosso f&oacute;rum.', },{className: "topico",autoHide: false,});
+					}
+				}
+				if(data.num_pixels > 0){
+					for(var i = 0; i < data.num_pixels; i++){
+						$.notify({title: 'Novo pixel-arte', text: 'O usu&aacute;rio <a>'+data.topico[i].autor+'</a> postou um novo <a href="'+data.topico[i].links+'">pixel</a><br> em nossa galeria.', },{className: "pixel",autoHide: false,});
+					}
+				}
+				if(data.total != 0){
+					for(var i = 0; i < data.total; i++) {
+						abrir.alerta("Alerta HabboNight",data.alerta[i].texto+"<div id='box_erro' class='blue'><div style='background:url(http://www.habbo.com.br/habbo-imaging/avatarimage?user="+data.alerta[i].autor+"&action=std&direction=4&head_direction=3&gesture=sml&size=b) 0px -10px; width:64px; height:54px; float:right; margin-top:-10px; margin-right:-10px;'></div><i class='fa fa-user fa-fw'></i> <a href='home/"+data.alerta[i].autor+"' style='color:#fff; font-weight:bold'>"+data.alerta[i].autor+"</a><br><i class='fa fa-clock-o fa-fw'></i> "+data.alerta[i].data+" às "+data.alerta[i].hora+"</div>");
+					}
+				}
+				if(data.notificacoes > 0){
+					console.log('q'+data.notificacoes);
+					$("#icon_notificacoes #counts").html(data.notificacoes);
+					
+					var titulo = document.title.split(')');
+					var tituloAux = "";
+					
+					if(titulo.length > 1){
+						tituloAux = titulo[1].substring(1);
+					}else{
+						tituloAux = document.title;
+					}
+					document.title = '('+data.notificacoes+') '+tituloAux;
+					if(data.notificacoes_news > 0){
+						$('#notification_sound').trigger("play");
+					}
+				}
+			}
+		});
+		setTimeout('site.alertas();', 60000);
+	}
+}
+var registrar_submit = true;
+var usuario = {
+	logado: false,
+	logar: function(){
+		//logar
+		if(!site.logado){
+			$("#form_logar").submit(function(){
+				var usuario = $('.login_nome').val();
+				var senha = $('.login_senha').val();
+				var permanecer = $(".lembrar").is(":checked");
+				if(permanecer == true){
+					var var_permanecer = "cookie";
+				} else {
+					var var_permanecer = "falso";
+				}
+				if(usuario == '' || senha == ''){
+					abrir.alerta('Erro!','Todos os campos devem ser preenchidos e não devem ficar em branco!');
+				} else {
+					$.ajax({
+						type: 'POST',
+						dataType: 'json',
+						data: {'usuario': usuario, 'senha': senha, 'verificar': 'sim', 'permanecer': var_permanecer},
+						url: 'lib/usuario_login.php',
+						success: function(data) {
+							if(data.status == 'foi'){
+								location.reload(); 
+							} else if(data.status == 'diferente') {
+								abrir.alerta('Erro!','Senha incorreta, tente novamente!');
+							} else if(data.status == 'banido') {
+								abrir.alerta('Usu&aacute;rio banido!','Você est&aacute; banido!!!<br> <b>Motivo:</b>'+data.motivo);
+							} else {
+								abrir.alerta('Erro!','Os dados que você digitou estão errados, tente novamente!');
+							}
+						}
+					});
+				}
+			});
+		}
+	},
+	deslogar: function(){
+		if(site.logado){
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				data: {'verificar': 'deslogar'},
+				url: 'lib/usuario_login.php',
+				success: function(data) {
+					if(data.status == 'foi'){
+						location.reload(); 
+					} else {
+						alert(data.status);
+					}
+				}
+			});
+		}
+	},
+	online: function(){
+		//carrega notificacoes
+	},
+	notificacoes: function(){
+		$.ajax({
+			type: 'POST',
+			dataType: 'json',
+			data: {'tipo': 'notificacoes', 'carrega':'sim'},
+			url: 'lib/ajax.php',
+			success: function(data) {
+				if(data.status == 'foi'){
+					$("#icon_notificacoes #counts").html("");
+					
+					var titulo = document.title.split(')');
+					var tituloAux = "";
+					
+					if(titulo.length > 1){
+						tituloAux = titulo[1].substring(1);
+					}else{
+						tituloAux = document.title;
+					}
+					document.title = tituloAux;
+					
+					$(".notifications_content").html("");
+					for(var i = 0; i < 20; i++) {
+						$(".notifications_content").append(data.not[i]);
+					}
+				} else {
+					abrir.alerta("Erro!","Algum erro ocorreu!");
+				}
+			}
+		});
+	},
+	registrar: function(){
+		if(!site.logado){
+			$("#form_registrar").submit(function(){
+				var usuario_r = $('.registro_nome').val();
+				var email_r = $('.registro_email').val();
+				var senha_r = $('.registro_senha1').val();
+				var senha_r2 = $('.registro_senha2').val();
+				//var referido_r = $('.registro_referido').val();
+				var permanecer = $(".termos_uso").is(":checked");
+				if(registrar_submit == true){
+					if(permanecer == true){
+						if(usuario_r == '' || senha_r == '' || senha_r2 == '' || email_r == ''){
+							abrir.alerta('Erro!','Todos os campos devem ser preenchidos e não devem ficar em branco!');
+						} else {
+							if(senha_r == senha_r2){
+                                var repo_r = "f";
+							    $.getJSON("https://www.habbo.com.br/api/public/users?name="+usuario_r, function() {
+							        
+                                })
+                                .done(function(habbo) {
+                                    console.log('SUA MISSÃO HABBO: '+habbo.motto);
+                                    repo_r = habbo.motto;
+    								$.ajax({
+    									type: 'POST',
+    									dataType: 'json',
+    									data: {'usuario': usuario_r, 'senha': senha_r, 'senha2': senha_r2, 'email': email_r, 'verificar': 'registrar', 'repo': repo_r},
+    									url: 'lib/usuario_registrar.php',
+    									beforeSend: function(){
+    										registrar_submit = false;
+    										$("#form_registrar").css('opacity','0.8');
+    									},
+    									success: function(data) {
+    										registrar_submit = true;
+    										$("#form_registrar").css('opacity','1');
+    										if(data.status == 'foi'){
+    											//alert(data.status);
+    						                    location.reload();
+    											abrir.alerta('Sucesso!','Voc&ecirc; se registrou em nosso site com sucesso!');
+    										} else if(data.status == 'email_invalido') {
+    											abrir.alerta('Erro!','Voc&ecirc; deve digitar um e-mail v&aacute;lido para que possamos entrar em contato!');
+    										} else if(data.status == 'senhas_diferentes') {
+    											abrir.alerta('Erro!','As senhas digitadas n&atilde;o s&atilde;o iguais!');
+    										} else if(data.status == 'existe') {
+    											abrir.alerta('Erro!','O usu&aacute;rio digitado j&aacute; existe em nosso site!');
+    										} else if(data.status == 'existe_email') {
+    											abrir.alerta('Erro!','O e-mail digitado j&aacute; est&aacute; registrado em nosso site!');
+    										} else if(data.status == 'missao_invalido') {
+    											abrir.alerta('Erro!','Tudo est&aacute; ok, mas voc&ecirc; esqueceu de alterar a sua miss&atilde;o Habbo!');
+    										} else {
+    											abrir.alerta('Erro!','Digite um nome e um e-mail maior!');
+    										}
+    											//abrir.alerta('Sucesso!','A sua conta foi cadastrada e ativada com sucesso! Efetue o login para poder começar a utilizar o site...');
+    									}
+    								});
+                                })
+                                .fail(function() {
+                                    console.log('falha');
+								    abrir.alerta('Erro!','Falha!');
+                                })
+							} else {
+								abrir.alerta('Erro!','As senhas digitadas n&atilde;o s&atilde;o iguais!');
+							}
+						}
+					} else {
+						abrir.alerta('Erro!','Voc&ecirc; deve concordar com os <u>termos de uso</u> da HabboNight!');
+					}
+				}
+			});
+		}
+	},
+}
+var abrir = {
+	top_music: function(id_video){
+		$('html').css('overflow','hidden');
+		var corpo_video = '<div id="modal_alerta"><div id="fecha_video">&times;</div>';
+		corpo_video += '<div id="video"><div id="carregando">'+carregando+'</div><div id="corpo_video"><iframe width="800" height="421" id="myvideo" src="https://www.youtube.com/embed/'+id_video+'?controls=0&showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe></div></div>';
+		corpo_video += '</div>';
+		$(corpo_video).appendTo('body'); 
+		$("body #modal_alerta").each(function(){
+			var modal_self = $(this);
+			$(this).find("#fecha_video").click(function(){
+				modal_self.fadeOut(200, function(){
+					modal_self.remove();
+					$('html').css('overflow','auto');
+				});
+			});
+		});
+		e.preventDefault();
+	},
+	pixel: function(link_img,id_pixel){
+		$('html').css('overflow','hidden');
+		var corpo_video = '<div class="m'+id_pixel+'" id="modal_alerta"><div id="fecha_video" class="f'+id_pixel+'">&times;</div>';
+		corpo_video += '<div id="pixel"><div id="carregando">'+carregando+'</div><div id="corpo_pixel"><div class="content"><img class="imagem_pixel" src="'+link_img+'" /></div></div></div>';
+		corpo_video += '</div>';
+		$(corpo_video).appendTo('body');
+		$(".imagem_pixel").on("load", function () {
+			setInterval(function(){$('.m'+id_pixel+' #carregando').remove();},1200);
+		});
+		$("body #modal_alerta").each(function(){
+			var modal_self = $(this);
+			$(this).find("#fecha_video").click(function(){
+				modal_self.fadeOut(200, function(){
+					modal_self.remove();
+					$('html').css('overflow','auto');
+				});
+			});
+		});
+		e.preventDefault();
+	},
+	alerta: function(titulo,conteudo){
+		$('html').css('overflow','hidden');
+		var corpo_alerta = '<div id="modal_alerta"><div id="alerta"><div id="title"><div class="title"><div class="fechar">X</div>'+titulo+'</div></div><div id="content">'+conteudo+'</div><div style="clear:both"></div></div></div>';
+		
+		$(corpo_alerta).appendTo('body');
+		
+		$("body #modal_alerta").each(function(){
+			var modal_self = $(this);
+			$("#alerta").css({opacity: 0,"margin-top": "-300px"});
+			$("#alerta").animate({"margin-top": "25px", opacity: 1},
+			200, function(){
+				$("#alerta").animate({"margin-top": "-10px"},
+				100, function(){
+					$("#alerta").animate({"margin-top": "5px"},
+					100, function(){
+						$("#alerta").animate({"margin-top": "0px"}, 100)
+					})
+				})
+			});
+			$(this).find("#alerta").draggable({
+				containment: modal_self,
+				handle: '#title',
+			});
+			$(this).find(".fechar").click(function(){
+				modal_self.fadeOut(200, function(){
+					modal_self.remove();
+					$('html').css('overflow','auto');
+				});
+			});
+		});
+	},
+	big_alerta: function(titulo,conteudo){
+		$('html').css('overflow','hidden');
+		var corpo_alerta = '<div id="modal_alerta"><div id="alerta" style="width:980px;"><div id="title" style="width:980px;"><div class="title" style="width:980px;"><div class="fechar" style="margin-left:920px;">X</div>'+titulo+'</div></div><div id="content" style="width:950px;">'+conteudo+'</div><div style="clear:both"></div></div></div>';
+		
+		$(corpo_alerta).appendTo('body');
+		
+		$("body #modal_alerta").each(function(){
+			var modal_self = $(this);
+			$("#alerta").css({opacity: 0,"margin-top": "-300px","margin-left":"-490px"});
+			$("#alerta").animate({"margin-top": "25px", opacity: 1},
+			200, function(){
+				$("#alerta").animate({"margin-top": "-10px"},
+				100, function(){
+					$("#alerta").animate({"margin-top": "5px"},
+					100, function(){
+						$("#alerta").animate({"margin-top": "0px"}, 100)
+					})
+				})
+			});
+			$(this).find("#alerta").draggable({
+				containment: modal_self,
+				handle: '#title',
+			});
+			$(this).find(".fechar").click(function(){
+				modal_self.fadeOut(200, function(){
+					modal_self.remove();
+					$('html').css('overflow','auto');
+				});
+			});
+		});
+	}
+}
+$(document).ready(function() {radio.atualizar();});
+var radio = {
+	atualizar: function(){
+		$.ajax({
+			type: 'POST',
+			dataType: 'json',
+			data: {'carrega': 'sim'},
+			url: 'lib/radio_status.php',
+			/* beforeSend: function(){
+				//player fixo
+				$("#player_fixo #avatar").css("background", "url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=MarcioPG.BAN&action=norm&direction=3&head_direction=3&gesture=sml&size=m)  no-repeat 7px -5px");
+				$("#player_fixo .locutor").html("...");
+				$("#player_fixo .programa").html("...");
+				$("#player_fixo #ouvintes").html("...");
+				$("#player_fixo #ouvintes").attr("data-hover", "...");
+				//player
+				$("#player #avatar div div").css("background", "url(https://www.habbo.com.br/habbo-imaging/avatarimage?user=MarcioPG.BAN&action=norm&direction=3&head_direction=3&gesture=sml&size=m) no-repeat 7px -5px");
+				$("#player .locutor").html("...");
+				$("#player .programa").html("...");
+				$("#player #ouvintes").html("...");
+				$("#player .ouvintes_toltip").html("...");
+				$("#player #ouvintes").attr("data-hover", "...");
+			}, */
+			success: function(data){
+				//player fixo			
+				$("#player_fixo #avatar").css("background", "url(https://www.habbo.com.br/habbo-imaging/avatarimage?user="+data.locutor+"&action=norm&direction=3&head_direction=3&gesture=sml&size=m)  no-repeat 7px -5px");
+				$("#player_fixo .locutor").html(data.locutor);
+				$("#player_fixo .programa").html(data.programa);
+				$("#player_fixo #ouvintes").html(data.ouvintes);
+				$("#player_fixo #ouvintes").attr("data-hover", data.ouvintes);
+				//player
+				$("#player #avatar div div").css("background", "url(https://www.habbo.com.br/habbo-imaging/avatarimage?user="+data.locutor+"&action=norm&direction=3&head_direction=3&gesture=sml&size=m) no-repeat 7px -5px");
+				$("#player .locutor").html(data.locutor);
+				$("#player .programa").html(data.programa);
+				$("#player #ouvintes").html(data.ouvintes);
+				$("#player .ouvintes_toltip").html(data.ouvintes);
+				$("#player #ouvintes").attr("data-hover", data.ouvintes);
+				setTimeout(radio.atualizar,10000);
+			}
+		})
+	},
+	presenca: function(){
+		abrir.alerta("Marcar presença", '<form action="javascript:;" id="form_presenca"><input id="input_branca" class="codigo_presenca" style="height:60px;" autocomplete="off" placeholder="Digite o c&oacute;digo" type="text"><input type="submit" id="enviar_r" value="Enviar" /><div id="exibe_erro"></div></form>');
+		
+		$("#form_presenca").submit(function(){
+			var codigo = $(".codigo_presenca").val();
+			if(codigo == ''){
+				$("#alerta").effect("shake", 500);
+			}else{
+				var cc = new Carregar({elemento:"#form_presenca", estilo:"light"});
+				$.ajax({
+					type: 'POST',
+					dataType: 'json',
+					data: {'carrega': 'sim', 'tipo':'presenca','codigo':codigo},
+					url: 'lib/ajax.php',
+					success: function(data){
+						$("#Carregando").remove();
+						if(data.status == "erro"){
+							$("#alerta").effect("shake", 500);
+						}
+						$("#exibe_erro").html(data.mensagem);
+					},
+					
+				});
+			}
+		});
+		
+	},
+	coracao: function(locutor){
+		var coracoes = parseInt($(".coracao #text").text());
+		$.ajax({
+			type: 'POST',
+			dataType: 'json',
+			data: {'carrega': 'sim', 'tipo':'coracao', 'locutor':locutor},
+			url: 'lib/votar.php',
+			success: function(coracao_data){
+				if(coracao_data.status == "retirou"){
+					$(".coracao #text").text(coracoes-1);
+					$(".coracao .like").animate({opacity: 0.8},250);
+				}else if(coracao_data.status == 'adicionou'){
+					$(".coracao #text").text(coracoes+1);
+					$(".coracao .like").animate({opacity: 1},250);
+				}
+			}
+		});
+	}
+}
+var noticias = {
+	atual: 1,
+	prev: false,
+	next: true,
+	paginacao: function(pagina){
+		if(pagina == "next"){
+			var pagNoticias = noticias.atual+1;
+			if(!noticias.next){
+				return false;
+			}
+		}else{
+			var pagNoticias = noticias.atual-1;
+			if(!noticias.prev){
+				return false;
+			}
+		}
+
+		var c_noticias = new Carregar({elemento:"#noticias_att"});
+		$.ajax({
+			type: 'POST',
+			dataType: 'json',
+			data: {'carrega': 'sim', 'tipo':'noticias', 'pagina':pagNoticias},
+			url: 'lib/ajax.php',
+			success: function(data){
+				noticias.prev = data.prev;
+				noticias.next = data.next;
+				noticias.atual = data.atual;
+				if(data.prev == true){$(".noticias_att #seta_e").removeClass('disable');}else{$(".noticias_att #seta_e").addClass('disable');}
+				if(data.next == true){$(".noticias_att #seta_d").removeClass('disable');}else{$(".noticias_att #seta_d").addClass('disable');}
+				$("#noticias_att").html("");
+				for(var i = 0; i < 8; i++) {
+					$("#noticias_att").append(data.noticias[i]);
+				}
+				$('[title]').tooltip({html: true});
+			},
+		});
+	}
+}
+var colunas = {
+	atual: 1,
+	prev: false,
+	next: true,
+	paginacao: function(pagina){
+		if(pagina == "next"){
+			var pagColunas = colunas.atual+1;
+			if(!colunas.next){
+				return false;
+			}
+		}else{
+			var pagColunas = colunas.atual-1;
+			if(!colunas.prev){
+				return false;
+			}
+		}
+
+		var c_colunas = new Carregar({elemento:"#colunas_att"});
+		$.ajax({
+			type: 'POST',
+			dataType: 'json',
+			data: {'carrega': 'sim', 'tipo':'colunas', 'pagina':pagColunas},
+			url: 'lib/ajax.php',
+			success: function(data){
+				colunas.prev = data.prev;
+				colunas.next = data.next;
+				colunas.atual = data.atual;
+				if(data.prev == true){$(".colunas_att #seta_e").removeClass('disable');}else{$(".colunas_att #seta_e").addClass('disable');}
+				if(data.next == true){$(".colunas_att #seta_d").removeClass('disable');}else{$(".colunas_att #seta_d").addClass('disable');}
+				$("#colunas_att").html("");
+				for(var i = 0; i < 8; i++) {
+					$("#colunas_att").append(data.colunas[i]);
+				}
+				$('[title]').tooltip({html: true});
+			},
+		});
+	}
+}
+
+var gratis = {
+	atual: 1,
+	prev: false,
+	next: true,
+	paginacao: function(pagina){
+		if(pagina == "next"){
+			var pagGratis = gratis.atual+1;
+			if(!gratis.next){
+				return false;
+			}
+		}else{
+			var pagGratis = gratis.atual-1;
+			if(!gratis.prev){
+				return false;
+			}
+		}
+
+		var c_gratis = new Carregar({elemento:"#gratis_att"});
+		$.ajax({
+			type: 'POST',
+			dataType: 'json',
+			data: {'carrega': 'sim', 'tipo':'gratis', 'pagina':pagGratis},
+			url: 'lib/ajax.php',
+			success: function(data){
+				gratis.prev = data.prev;
+				gratis.next = data.next;
+				gratis.atual = data.atual;
+				if(data.prev == true){$(".gratis_att #seta_e").removeClass('disable');}else{$(".gratis_att #seta_e").addClass('disable');}
+				if(data.next == true){$(".gratis_att #seta_d").removeClass('disable');}else{$(".gratis_att #seta_d").addClass('disable');}
+				$("#gratis_att").html("");
+				for(var i = 0; i < 8; i++) {
+					$("#gratis_att").append(data.gratis[i]);
+				}
+				$('[title]').tooltip({html: true});
+			},
+		});
+	}
+}
+
+var topicos = {
+	atual: 1,
+	prev: false,
+	next: true,
+	paginacao: function(pagina){
+		if(pagina == "next"){
+			var pagTopicos = topicos.atual+1;
+			if(!topicos.next){
+				return false;
+			}
+		}else{
+			var pagTopicos = topicos.atual-1;
+			if(!topicos.prev){
+				return false;
+			}
+		}
+
+		var c_topicos = new Carregar({elemento:"#topicos_att"});
+		$.ajax({
+			type: 'POST',
+			dataType: 'json',
+			data: {'carrega': 'sim', 'tipo':'topicos', 'pagina':pagTopicos, 'ordem':'comentario'},
+			url: 'lib/ajax.php',
+			success: function(data){
+				$("#Carregando").remove();
+				topicos.prev = data.prev;
+				topicos.next = data.next;
+				topicos.atual = data.atual;
+				if(data.prev == true){$(".topicos #seta_e").removeClass('disable');}else{$(".topicos #seta_e").addClass('disable');}
+				if(data.next == true){$(".topicos #seta_d").removeClass('disable');}else{$(".topicos #seta_d").addClass('disable');}
+				$("#topicos_att").html("");
+				for(var i = 0; i < 10; i++) {
+					$("#topicos_att").append(data.topicos[i]);
+				}
+				$('[title]').tooltip({html: true});
+			},
+		});
+	}
+		
+}
+var pixels = {
+	atual: 1,
+	prev: false,
+	next: true,
+	paginacao: function(pagina, nums){
+		if(pagina == "next"){
+			var pagPixel = pixels.atual+1;
+			if(!pixels.next){
+				return false;
+			}
+		}else{
+			var pagPixel = pixels.atual-1;
+			if(!pixels.prev){
+				return false;
+			}
+		}
+
+		var c_topicos = new Carregar({elemento:".box_pixels"});
+		$.ajax({
+			type: 'POST',
+			dataType: 'json',
+			data: {'carrega': 'sim', 'tipo':'pixels', 'pagina':pagPixel, 'num':nums},
+			url: 'lib/ajax.php',
+			success: function(data){
+				$("#Carregando").remove();
+				pixels.prev = data.prev;
+				pixels.next = data.next;
+				pixels.atual = data.atual;
+				if(data.prev == true){$(".pixels #seta_e").removeClass('disable');}else{$(".pixels #seta_e").addClass('disable');}
+				if(data.next == true){$(".pixels #seta_d").removeClass('disable');}else{$(".pixels #seta_d").addClass('disable');}
+				$(".box_pixels").html("");
+				for(var i = 0; i < 10; i++) {
+					$(".box_pixels").append(data.pixels[i]);
+				}
+				$(".box_pixels").append("<div style='clear:both'></div>");
+				$('[title]').tooltip({html: true});
+			},
+		});
+	}
+}
+var tirinhas = {
+	atual: 1,
+	prev: false,
+	next: true,
+	paginacao: function(pagina){
+		if(pagina == "next"){
+			var pagTirinhas = tirinhas.atual+1;
+			if(!tirinhas.next){
+				return false;
+			}
+		}else{
+			var pagTirinhas = tirinhas.atual-1;
+			if(!tirinhas.prev){
+				return false;
+			}
+		}
+
+		var c_topicos = new Carregar({elemento:"#tirinhas_att"});
+		$.ajax({
+			type: 'POST',
+			dataType: 'json',
+			data: {'carrega': 'sim', 'tipo':'tirinhas', 'pagina':pagTirinhas},
+			url: 'lib/ajax.php',
+			success: function(data){
+				$("#Carregando").remove();
+				tirinhas.prev = data.prev;
+				tirinhas.next = data.next;
+				tirinhas.atual = data.atual;
+				if(data.prev == true){$(".tirinhas #seta_e").removeClass('disable');}else{$(".tirinhas #seta_e").addClass('disable');}
+				if(data.next == true){$(".tirinhas #seta_d").removeClass('disable');}else{$(".tirinhas #seta_d").addClass('disable');}
+				$("#tirinhas_att").html("");
+				for(var i = 0; i < 10; i++) {
+					$("#tirinhas_att").append(data.tirinhas[i]);
+				}
+				$("#tirinhas_att").append("<div style='clear:both'></div>");
+				$('[title]').tooltip({html: true});
+			},
+		});
+	}
+		
+}
+var rankings = {
+	pag: 1,
+	paginacao:function(id){
+		if(rankings.pag == 1 && id == 2){
+			$(".move_ranking").animate({"margin-left": "25px"},
+			200, function(){
+				$(".move_ranking").animate({"margin-left": "-323px"}, 100)
+			});
+			$("#seta_d_r").addClass('disable');
+			$("#seta_e_r").removeClass('disable');
+			rankings.pag = 2;
+		}else if(rankings.pag == 2 && id == 1){
+			$(".move_ranking").animate({"margin-left": "-343px"},
+			200, function(){
+				$(".move_ranking").animate({"margin-left": "0px"}, 100)
+			});
+			$("#seta_e_r").addClass('disable');
+			$("#seta_d_r").removeClass('disable');
+			rankings.pag = 1;
+		}
+	},
+	iniciar: function(){
+		$('[data-ranking]').each(function() {
+			var target = $(this).data('target');
+			$(this).click(function() {
+				$(this).find("#options").fadeToggle("fast");
+			});
+			$(this).find('[data-action]').click(function(){
+				var action = $(this).attr('data-action');
+				var cat = $(this).attr('data-cat');
+				$.ajax({
+					type: 'POST',
+					data: {'carrega': 'sim', 'tipo':action, 'categoria':cat},
+					url: 'lib/ranking.php',
+					beforeSend: function(){
+						var c_ranking = new Carregar({elemento:"#"+target});
+					},
+					success: function(data){
+						$('#'+target).html(data);
+					}
+				});
+			});
+		});
+	}
+}
+
+
+
+$(document).ready(function(){
+	usuario.registrar();
+	usuario.logar();
+	site.iniciar();
+	rankings.iniciar();
+
+	if(!$.cookie('menu_fixed')) {$.cookie('menu_fixed', "fixed", { expires: 10, path: '/' });}
+	$("#menu").append('<div style="width:1000px;margin:auto"><div style="float:right; margin-right:20px; margin-top:-40px"><i id="menu_fixed" title="Desfixar menu" class="fa fa-bookmark" style="cursor:pointer" data-placement="bottom"></i></div></div>');
+	if($.cookie('menu_fixed') != "fixed"){$("#menu_fixed").removeClass("fa-bookmark");$("#menu_fixed").addClass("fa-bookmark-o");}
+	$("#menu_fixed").click(function(){
+		if($.cookie('menu_fixed') == "fixed"){
+			$.cookie('menu_fixed', "false", { expires: 10, path: '/' });
+			$('#barra_menu').css('height','5px');
+			$('#menu').removeClass('fixed');
+			$("#menu_fixed").removeClass("fa-bookmark");
+			$("#menu_fixed").addClass("fa-bookmark-o");
+		}else{
+			$.cookie('menu_fixed', "fixed", { expires: 10, path: '/' });
+			$("#menu_fixed").removeClass("fa-bookmark-o");
+			$("#menu_fixed").addClass("fa-bookmark");
+		}
+	});
+
+	$(window).scroll(function() {
+		var scrollPlayer = $('#barra_menu').offset().top + 5;
+		var scrollTop = $(this).scrollTop();
+		var cookie_menu = $.cookie('menu_fixed');
+		if(scrollTop > scrollPlayer) {
+			if(cookie_menu == "fixed"){
+				$('#barra_menu').css('height','71px');
+				$('#menu').addClass('fixed');
+			}
+			$('#player_fixo').css('display', 'block');
+			$('#volume').addClass('fixed');
+		} else {
+			$('#barra_menu').css('height','5px');
+			$('#menu').removeClass('fixed');
+			$('#player_fixo').css('display', 'none');
+			$('#volume').removeClass('fixed');
+		}
+	});
+	
+	if(!$.cookie('volume')) {$.cookie('volume', 90, { expires: 10, path: '/' });}
+	
+	if(window.self !== window.top) {
+		window.top.document.title = document.title;
+		var player_top = window.top.player.document.getElementById('audio');
+	} else {
+		$("body").append('<a title="A r&aacute;dio est&aacute; travando? Clique aqui!" data-placement="left" href="http://habbonight.com.br" style="bottom: 15px;right: 58px;position: fixed;width: 25px;height: 25px; color: #fff; font-size: 20px;"><i class="fa fa-microphone"></i></a>');
+		$('[title]').tooltip({html: true});
+
+		$("#player_co").append('<audio id="audio" preload="none" autoplay="true" src="https://stream2.svrdedicado.org:7053/;" type="audio/mpeg" style="width: 400px; opacity:0"></audio>');
+
+		var player_top = document.getElementById('audio');
+	}
+	
+	var change_volume = function(e,ui){
+		player_top.volume = ui.value/100;
+		$.cookie('volume', ui.value, { expires: 10, path: '/' });	
+		if(ui.value<1){
+			$("#volume #icon").css('backgroundPosition', '-52px 0px');
+		} else if(ui.value<41){
+				$("#volume #icon").css('backgroundPosition', '-26px 0px');
+		} else {
+			$("#volume #icon").css('backgroundPosition', '0px 0px');
+		}
+	}
+	var cookie_volume = $.cookie('volume');
+	player_top.volume = cookie_volume/100;
+	
+	$('#slider').slider({
+		range: "min",
+		min: 0,
+		max: 100,
+		value: cookie_volume,
+		slide: change_volume,
+		stop: change_volume
+	})
+});
+
+
+
+(function($){
+	$(document).ready(function() {
+		var div = $('<div></div>').addClass('paginas');
+		$('#slide ul').before(div);
+		$('#slide ul').cycle({
+			pager: 'div.paginas', 
+			pause: true, 
+			pauseOnPagerHover: true, 
+			before: function(atual, proximo, opcoes, avancando) {$('p, div.fundo', atual).slideUp('fast');},
+			after: function(atual, proximo, opcoes, avancando) {$('a.faixa', '#slide').attr({title: $('a', proximo).attr('title'),href: $('a', proximo).attr('href')});
+				$('p, div.fundo', proximo).slideDown('fast');
+			}
+		});
+	});
+})(jQuery);
