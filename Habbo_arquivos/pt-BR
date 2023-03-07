@@ -1,0 +1,13 @@
+(function() {
+    var translation = {"ERROR_GENERIC_PREFIX":"Neste momento não foi possível entrar, sentimos muito.","ERROR_GENERIC_PREFIX2":"Se o problema continuar, saiba ","ERROR_GENERIC_SUFFIX":".","ERROR_PREFIX_AOL":"Não foi possível entrar. Por favor, confira seu apelido e tente novamente. Precisa de ","ERROR_PREFIX_BLOGGER":"Não foi possível entrar. Por favor, confira seu domínio e tente novamente. Precisa de ","ERROR_PREFIX_NETLOG":"Não foi possível entrar. Por favor, confira seu apelido e tente novamente. Precisa de ","ERROR_PREFIX_OPENID":"Não foi possível entrar. Por favor, confira seu OpenID e tente novamente. Precisa de ","ERROR_PREFIX_USERNAME":"Não foi possível entrar. Por favor, confira seu nome de usuário e tente novamente. Precisa de ","ERROR_SUFFIX_AOL":"?","ERROR_SUFFIX_BLOGGER":"?","ERROR_SUFFIX_NETLOG":"?","ERROR_SUFFIX_OPENID":"?","ERROR_SUFFIX_USERNAME":"?","HEADER":"Entre através da sua conta no","HELP":"ajuda","INPUT_EXAMPLE_BLOGGER":"ex.: meublog.blogspot.com ou meudominioblogger.com","INPUT_PROMPT_AOL":"Seu apelido no AOL","INPUT_PROMPT_BLOGGER":"Seu domínio no Blogger","INPUT_PROMPT_LIVEJOURNAL":"Seu nome de usuário no LiveJournal","INPUT_PROMPT_NETLOG":"Seu apelido no Netlog","INPUT_PROMPT_OPENID":"Sua URL do OpenID","INPUT_PROMPT_WORDPRESS":"Seu nome de usuário no WordPress","MORE_INFO":"mais aqui","NOT_YOU":"não é você?","PAGE":"página","POWERED_BY_PREFIX":"Login social ","POWERED_BY_SUFFIX":"desenvolvido pela Janrain","SIGNING_IN":"Fazendo login ...","SIGN_IN":"Entre","SIGN_IN_AS":"Entre","TRY_AGAIN":"Tente novamente","USE_ANOTHER_ACCOUNT":"use outra conta","WELCOME_BACK":"Bem-vindo de volta","WELCOME_BACK_PREFIX":"Bem-vindo de volta, ","WELCOME_BACK_SUFFIX":""};
+    if (!janrain.settings.translate || janrain.settings.translate === {}) {
+        janrain.settings.translate = translation;
+    }
+    else {
+        for (var str in translation) {
+            if(!janrain.settings.translate[str] || str === "POWERED_BY_PREFIX" || str === "POWERED_BY_SUFFIX") {
+                janrain.settings.translate[str] = translation[str];
+            }
+        }
+    }
+})();
